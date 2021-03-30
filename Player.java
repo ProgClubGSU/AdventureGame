@@ -1,4 +1,4 @@
-public class Player{
+public class Player {
   
   private String name;
   private Location currentLocation;
@@ -14,7 +14,7 @@ public class Player{
   }
 
   public void getCurrentLocation() {
-    System.out.println(this.currentLocation.description);
+    System.out.println(this.currentLocation.getDescription());
   }
 
 	public String getName() {

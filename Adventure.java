@@ -39,10 +39,10 @@ class Adventure {
 		Location AdmissionsOffice = new Location("Admissions Office", "3",1,2,3,4);
 
 		//Objects
-		Object Security_Tape = new Object("Security Tape", "Evidence");
-		Object Red_marker = new Object("Red Marker", "Evidence");
-		Object receiptOfTotalSale = new Object("Receipt of Total Sale", "Evidence");
-		Object recountedTestimony = new Object("Recounted Testimony", "Evidence");
+		Item Security_Tape = new Item("Security Tape", "Evidence");
+		Item Red_marker = new Item("Red Marker", "Evidence");
+		Item receiptOfTotalSale = new Item("Receipt of Total Sale", "Evidence");
+		Item recountedTestimony = new Item("Recounted Testimony", "Evidence");
 
 		//Starting at Student Center Location
 		mainPlayer.setCurrentLocation(studentCenter);

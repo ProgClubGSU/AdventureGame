@@ -1,8 +1,6 @@
-public class Location extends Object{
+public class Location extends GameObject{
   
-	public String name;
-  public String description;
-  public Object itemsHere[];
+  public Item[] itemsHere;
 
 	private int N, S, E, W;
 
@@ -12,18 +10,14 @@ public class Location extends Object{
 		this.S = aS;
 		this.E = aE;
 		this.W = aW;
-    this.itemsHere = new Object[25];
+    this.itemsHere = new Item[25];
   }
 
 	public String getLocation() {
-		return this.name;
+		return this.getName();
 	}
   
-  public void setDescription(String string) {
-    this.description = string;
-  }
-  
-  public void addObject(Object object, int indexNumber) {
+  public void addObject(Item object, int indexNumber) {
     this.itemsHere[indexNumber] = object;
   }
   
@@ -39,14 +33,14 @@ public class Location extends Object{
     System.out.println("Items Here: ");
     for (int i = 0; i < itemsHere.length; i++) {
       if (itemsHere[i] != null) {
-        System.out.println("- " + itemsHere[i].name);
+        System.out.println("- " + itemsHere[i].getName());
       }
     }
   }
   
   public void printInfo() {
-    System.out.println(this.name);
-    System.out.println(this.description);
+    System.out.println(this.getName());
+    System.out.println(this.getDescription());
     System.out.println(this.itemsHere);
   }
   
