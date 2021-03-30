@@ -1,47 +1,41 @@
+import java.util.*;
+
 public class Location extends GameObject{
   
-  public Item[] itemsHere;
+  private ArrayList<Item> items;
+  private ArrayList<Location> neighbors;
 
-	private int N, S, E, W;
-
-  public Location(String name, String description, int aN, int aS, int aE, int aW) {
-		super(name, description);
-		this.N = aN;
-		this.S = aS;
-		this.E = aE;
-		this.W = aW;
-    this.itemsHere = new Item[25];
+  public Location(String name, String description) {
+  	super(name, description);
+    items = new ArrayList<>();
+    neighbors = new ArrayList<>();
   }
 
 	public String getLocation() {
 		return this.getName();
 	}
   
-  public void addObject(Item object, int indexNumber) {
-    this.itemsHere[indexNumber] = object;
+  public Location addItem(Item item) {
+    items.add(item);
+    return this;
   }
   
-  public void removeObject(Object object) {
-    for(int i = 0; i < itemsHere.length; i++) {
-      if (itemsHere[i] == object) {
-        itemsHere[i] = null;
-      }
-    }
+  public Location removeItem(Item item) {
+    items.remove(item);
+    return this;
   }
     
   public void printItemsHere() {
     System.out.println("Items Here: ");
-    for (int i = 0; i < itemsHere.length; i++) {
-      if (itemsHere[i] != null) {
-        System.out.println("- " + itemsHere[i].getName());
-      }
+    for (Item curr : items) {
+      System.out.println("- " + curr.getName());
     }
   }
   
   public void printInfo() {
-    System.out.println(this.getName());
-    System.out.println(this.getDescription());
-    System.out.println(this.itemsHere);
+    System.out.println(getName());
+    System.out.println(getDescription());
+    printItemsHere();
   }
   
 }

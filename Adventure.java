@@ -34,12 +34,12 @@ class Adventure {
 		Player Glenda = new Player("Glenda");
     
     //All Locations
-		Location studentCenter = new Location("Student Center", "1",1,2,3,4);
-		Location languageHall = new Location("Language Hall", "2",1,2,3,4);
-		Location AdmissionsOffice = new Location("Admissions Office", "3",1,2,3,4);
+		Location studentCenter = new Location("Student Center", "You are at the Student Center. Here is the scene of the crime and Glenda the girl scout's usual cookie stall location.");
+		Location languageHall = new Location("Language Hall", "2");
+		Location AdmissionsOffice = new Location("Admissions Office", "");
 
 		//Objects
-		Item Security_Tape = new Item("Security Tape", "Evidence");
+		Item Security_Tape = new Item("Security Tape", "Shows a vague figure walking towards the student center on the night of the incident. You cannot distinguish the face of the person pictured but they are noticably shorter than you or Xavier.");
 		Item Red_marker = new Item("Red Marker", "Evidence");
 		Item receiptOfTotalSale = new Item("Receipt of Total Sale", "Evidence");
 		Item recountedTestimony = new Item("Recounted Testimony", "Evidence");
@@ -50,15 +50,12 @@ class Adventure {
 		
 		//Game introduction
 		getIntro(mainPlayer.getName());
-    studentCenter.setDescription("You are at the Student Center. Here is the scene of the crime and Glenda the girl scout's usual cookie stall location.");
 
 		//List of Evidence:
-    Security_Tape.setDescription("Shows a vague figure walking towards the student center on the night of the incident. You cannot distinguish the face of the person pictured but they are noticably shorter than you or Xavier.");
-    studentCenter.addObject(Security_Tape, 0);
-    studentCenter.addObject(Red_marker, 1);
-
-    studentCenter.addObject(receiptOfTotalSale, 2);
-		languageHall.addObject(Security_Tape, 4);
+    studentCenter
+      .addItem(Security_Tape)
+      .addItem(Red_marker)
+      .addItem(receiptOfTotalSale);
 
     studentCenter.printItemsHere();
     
