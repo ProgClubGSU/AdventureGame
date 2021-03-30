@@ -11,7 +11,7 @@ public class Character extends GameObject {
     this.location = location;
   }
 
-  public void getCurrentLocation() {
-    System.out.println(location.getDescription());
+  public Location getCurrentLocation() {
+    return location;
   }
 }

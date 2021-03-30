@@ -25,45 +25,20 @@ public class Adventure {
     Boolean quit = false;
 
     Scanner input = new Scanner(System.in);
-    System.out.print("Please enter you name:");
-
-    //All Locations
-		Location studentCenter = new Location("Student Center", "You are at the Student Center. Here is the scene of the crime and Glenda the girl scout's usual cookie stall location.");
-		Location langdaleHall = new Location("Langdale Hall", "2");
-		Location admissionsOffice = new Location("Admissions Office", "");
-
-		//Main characters
-		Character mainPlayer = new Character(input.nextLine(), studentCenter);
-		Character SteveSminkle = new Character("Steve Sminkle", admissionsOffice);
-		Character Xavier = new Character("Xavier", langdaleHall);
-		Character Glenda = new Character("Glenda", studentCenter);
- 
-		//Objects
-		Item securityTape = new Item("Security Tape", "Shows a vague figure walking towards the student center on the night of the incident. You cannot distinguish the face of the person pictured but they are noticably shorter than you or Xavier.");
-		Item redMarker = new Item("Red Marker", "Evidence");
-		Item receiptOfTotalSale = new Item("Receipt of Total Sale", "Evidence");
-		Item recountedTestimony = new Item("Recounted Testimony", "Evidence");
-
-		//Starting at Student Center Location
-		mainPlayer.setCurrentLocation(studentCenter);
-    mainPlayer.getCurrentLocation();
+    System.out.print("Please enter you name: ");
+    Character player = AdventureData.loadGameDataAndMC(input.nextLine());
 		
 		//Game introduction
-		getIntro(mainPlayer.getName());
-
-		//List of Evidence:
-    studentCenter.addItem(securityTape);
-    studentCenter.addItem(redMarker);
-    studentCenter.addItem(receiptOfTotalSale);
-
-    studentCenter.printItemsHere();
+		getIntro(player.getName());
+    System.out.println(player.getCurrentLocation());
+    player.getCurrentLocation().printItemsHere();
     
   while (quit != true) {
     System.out.println("What is your choice?");
     System.out.println("Type M for menu.");
     choice = input.nextLine();
     if (choice.equals("L") || choice.equals("l")) {
-      mainPlayer.getCurrentLocation();
+      player.getCurrentLocation();
     } else if (choice.equals("E") || choice.equals("e")) {
       System.out.println("What item would you like to examine?");
       choice = input.nextLine();
