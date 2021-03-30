@@ -15,14 +15,12 @@ public class Location extends GameObject{
 		return this.getName();
 	}
   
-  public Location addItem(Item item) {
+  public void addItem(Item item) {
     items.add(item);
-    return this;
   }
   
-  public Location removeItem(Item item) {
+  public void removeItem(Item item) {
     items.remove(item);
-    return this;
   }
     
   public void printItemsHere() {

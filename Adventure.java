@@ -52,10 +52,9 @@ public class Adventure {
 		getIntro(mainPlayer.getName());
 
 		//List of Evidence:
-    studentCenter
-      .addItem(securityTape)
-      .addItem(redMarker)
-      .addItem(receiptOfTotalSale);
+    studentCenter.addItem(securityTape);
+    studentCenter.addItem(redMarker);
+    studentCenter.addItem(receiptOfTotalSale);
 
     studentCenter.printItemsHere();
     

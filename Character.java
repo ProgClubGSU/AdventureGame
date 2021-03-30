@@ -7,9 +7,8 @@ public class Character extends GameObject {
     this.location = location;
   }
 
-  public Character setCurrentLocation(Location location) {
+  public void setCurrentLocation(Location location) {
     this.location = location;
-    return this;
   }
 
   public void getCurrentLocation() {

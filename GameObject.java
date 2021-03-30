@@ -16,13 +16,11 @@ public class GameObject {
 		return name;
 	}
 
-  public GameObject setDescription(String newDescription) {
+  public void setDescription(String newDescription) {
     description = newDescription;
-    return this;
   }
 
-  public GameObject setName(String newName) {
+  public void setName(String newName) {
     name = newName;
-    return this;
   }
 }
