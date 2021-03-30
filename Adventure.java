@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Adventure {
+public class Adventure {
   
   public static void printMenu() {
     System.out.println("************************");
@@ -24,23 +24,23 @@ class Adventure {
     String choice = "";
     Boolean quit = false;
 
-    Scanner scan = new Scanner(System.in);
+    Scanner input = new Scanner(System.in);
     System.out.print("Please enter you name:");
 
-		//Main characters
-		Player mainPlayer = new Player(scan.nextLine());
-		Player SteveSminkle = new Player("Steve Sminkle");
-		Player Xavier = new Player("Xavier");
-		Player Glenda = new Player("Glenda");
-    
     //All Locations
 		Location studentCenter = new Location("Student Center", "You are at the Student Center. Here is the scene of the crime and Glenda the girl scout's usual cookie stall location.");
-		Location languageHall = new Location("Language Hall", "2");
-		Location AdmissionsOffice = new Location("Admissions Office", "");
+		Location langdaleHall = new Location("Langdale Hall", "2");
+		Location admissionsOffice = new Location("Admissions Office", "");
 
+		//Main characters
+		Character mainPlayer = new Character(input.nextLine(), studentCenter);
+		Character SteveSminkle = new Character("Steve Sminkle", admissionsOffice);
+		Character Xavier = new Character("Xavier", langdaleHall);
+		Character Glenda = new Character("Glenda", studentCenter);
+ 
 		//Objects
-		Item Security_Tape = new Item("Security Tape", "Shows a vague figure walking towards the student center on the night of the incident. You cannot distinguish the face of the person pictured but they are noticably shorter than you or Xavier.");
-		Item Red_marker = new Item("Red Marker", "Evidence");
+		Item securityTape = new Item("Security Tape", "Shows a vague figure walking towards the student center on the night of the incident. You cannot distinguish the face of the person pictured but they are noticably shorter than you or Xavier.");
+		Item redMarker = new Item("Red Marker", "Evidence");
 		Item receiptOfTotalSale = new Item("Receipt of Total Sale", "Evidence");
 		Item recountedTestimony = new Item("Recounted Testimony", "Evidence");
 
@@ -53,17 +53,12 @@ class Adventure {
 
 		//List of Evidence:
     studentCenter
-      .addItem(Security_Tape)
-      .addItem(Red_marker)
+      .addItem(securityTape)
+      .addItem(redMarker)
       .addItem(receiptOfTotalSale);
 
     studentCenter.printItemsHere();
     
-  Scanner input = new Scanner(System.in);
-  
-  /*public static void LookAround(){
-    System.out.println("Any clues");
-  }*/
   while (quit != true) {
     System.out.println("What is your choice?");
     System.out.println("Type M for menu.");
@@ -86,6 +81,7 @@ class Adventure {
       System.out.println("That's not a valid choice.");
     }
   }
-    
+  input.close();
+
   }
 }
