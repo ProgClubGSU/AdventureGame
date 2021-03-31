@@ -32,6 +32,12 @@ public class Adventure {
             // Always print the description
             // If it's a person, then start the dialog
             // If it's an item, then put the item into inventory
+            if (command.length != 2) {
+              System.out.println("You mustr specify an object/person to examine");
+            }
+
+            String examineName = command[1];
+            
             break;
           case "go":
             if (command.length != 2) {

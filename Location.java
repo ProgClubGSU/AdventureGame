@@ -8,6 +8,7 @@ public class Location extends GameObject{
 
   public Location(String name, String description) {
   	super(name, description);
+    people = new ArrayList<>();
     items = new ArrayList<>();
     neighbors = new HashMap<>();
   }
