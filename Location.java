@@ -33,6 +33,26 @@ public class Location extends GameObject{
     items.remove(item);
   }
 
+  public Item containItem(String name) {
+    for (Item i : this.items) {
+      if (i.getName().equals(name)) {
+        return i;
+      }
+    }
+
+    return null;
+  }
+
+  public Character containCharacter(String name) {
+    for (Character c : this.people) {
+      if (c.getName().equals(name)) {
+        return c;
+      }
+    }
+
+    return null;
+  }
+
   public void addNeighbor(String direction, Location neighbor) {
     neighbors.put(direction, neighbor);
   }

@@ -15,7 +15,7 @@ public class Adventure {
       player.getCurrentLocation().printInfo();
       System.out.print("What would you like to do? ");
       choice = input.nextLine().toLowerCase();
-      String[] command = choice.split(" ");
+      String[] command = choice.split(" ", 2);
       if (choice.length() == 0 || command.length == 0) {
         System.out.println("Please input a command or type 'help' for options.");
       } else {
@@ -33,10 +33,23 @@ public class Adventure {
             // If it's a person, then start the dialog
             // If it's an item, then put the item into inventory
             if (command.length != 2) {
-              System.out.println("You mustr specify an object/person to examine");
+              System.out.println("You must specify an object/person to examine");
+            }
+            String examineName = command[1];
+            
+            Item possibleItem = player.getCurrentLocation().containItem(examineName);
+            if (possibleItem != null) {
+              System.out.println(possibleItem.getDescription());
+
+              // add into inventory
             }
 
-            String examineName = command[1];
+            Character possiblCharacter = player.getCurrentLocation().containCharacter(examineName);
+            if (possiblCharacter != null) {
+              System.out.println(possiblCharacter.getDescription());
+
+              // Start interaction
+            }
             
             break;
           case "go":
