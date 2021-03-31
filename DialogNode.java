@@ -6,7 +6,7 @@ public class DialogNode {
   // Whether reaching this dialog node wins/loses the game; most nodes are null
   private Boolean wins;
   // TODO: separate constructor for required elements
-  private List<Items> required;
+  private List<Item> required;
 
   public DialogNode(String blurb, Map<String, DialogNode> choices) {
     this.blurb = blurb;

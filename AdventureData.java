@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class AdventureData {
 
   public static Character loadGameDataAndMC(String mainCharacterName) {
@@ -23,7 +25,15 @@ public class AdventureData {
 
     // Script wiring
     SteveSminkle.setScript(
-      
+      new DialogNode(
+        "This is an example dialog",
+        Map.of(
+          "What?", new DialogNode("You're in trouble now mister", Map.of()),
+          "Huh?", new DialogNode("What are you looking at?", Map.of()),
+          "Goodbye", new DialogNode("Get out of here.", Map.of())
+        )
+      )
+
     );
 
 		// Location Wiring
