@@ -23,4 +23,9 @@ public class GameObject {
   public void setName(String newName) {
     name = newName;
   }
+
+  public String toString() {
+    return name + " - " + description;
+  }
+
 }

@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Location extends GameObject{
   
+  private ArrayList<Character> people;
   private ArrayList<Item> items;
   private HashMap<String, Location> neighbors;
 
@@ -15,6 +16,14 @@ public class Location extends GameObject{
 		return this.getName();
 	}
   
+  public void addPerson(Character person) {
+    people.add(person);
+  }
+
+  public void removePerson(Character person) {
+    people.remove(person);
+  }
+  
   public void addItem(Item item) {
     items.add(item);
   }
@@ -25,6 +34,10 @@ public class Location extends GameObject{
 
   public void addNeighbor(String direction, Location neighbor) {
     neighbors.put(direction, neighbor);
+  }
+
+  public Location getNeighbor(String direction) {
+    return neighbors.get(direction);
   }
     
   // Unless this game suddenly becomes a survival horror,
@@ -43,7 +56,10 @@ public class Location extends GameObject{
   public void printInfo() {
     System.out.println(getName());
     System.out.println(getDescription());
-    printItemsHere();
+    System.out.println("Nearby:");
+    for (Map.Entry<String, Location> kv : neighbors.entrySet()) {
+      System.out.println(String.format("  - %s (go %s)", kv.getValue().getName(), kv.getKey()));
+    }
   }
 
   public String toString() {
