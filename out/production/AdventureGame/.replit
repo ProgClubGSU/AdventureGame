@@ -1,2 +1,0 @@
-language = "java10"
-run = "rm *.class; javac *.java; java Adventure"
