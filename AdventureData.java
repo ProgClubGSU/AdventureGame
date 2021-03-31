@@ -21,10 +21,16 @@ public class AdventureData {
 		Item receiptOfTotalSale = new Item("Receipt of Total Sale", "Evidence");
 		Item recountedTestimony = new Item("Recounted Testimony", "Evidence");
 
-		// Wiring
+    // Script wiring
+    SteveSminkle.setScript(
+      
+    );
+
+		// Location Wiring
     studentCenter.addItem(securityTape);
     studentCenter.addItem(redMarker);
     studentCenter.addItem(receiptOfTotalSale);
+    studentCenter.addPerson(SteveSminkle);
 
     studentCenter.addNeighbor("further west", admissionsOffice);
     admissionsOffice.addNeighbor("further east", studentCenter);

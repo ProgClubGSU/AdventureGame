@@ -2,6 +2,20 @@ import java.util.*;
 
 public class DialogNode {
   private String blurb;
-  private HashMap<String, DialogNode> choices;
+  private Map<String, DialogNode> choices;
+  // Whether reaching this dialog node wins/loses the game; most nodes are null
+  private Boolean wins;
+  // TODO: separate constructor for required elements
+  private List<Items> required;
 
+  public DialogNode(String blurb, Map<String, DialogNode> choices) {
+    this.blurb = blurb;
+    this.choices = choices;
+  }
+
+  public DialogNode(String blurb, Boolean wins, Map<String, DialogNode> choices) {
+    this.blurb = blurb;
+    this.choices = choices;
+    this.wins = wins;
+  }
 }
