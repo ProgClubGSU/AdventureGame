@@ -68,13 +68,11 @@ public class Adventure {
  
   private static void printHelpScreen() {
     System.out.println("************************");
-    System.out.println("L - look around");
-    System.out.println("X - exit location");
-    System.out.println("A - add item to inventory");
-    System.out.println("D - drop item");
-    System.out.println("I - inventory");
-    System.out.println("E - examine item");
-    System.out.println("Q - quit game");
+    System.out.println("look - look around");
+    System.out.println("examine <person/item> - talk to people, pick up things");
+    System.out.println("go <location> - move to new location");
+    System.out.println("stuff - how what you're carrying");
+    System.out.println("quit - quit game");
     System.out.println("************************");
   }
   
