@@ -115,7 +115,7 @@ public class Adventure {
     System.out.println("look - look around");
     System.out.println("examine <person/item> - talk to people, pick up things");
     System.out.println("go <location> - move to new location");
-    System.out.println("stuff - how what you're carrying");
+    System.out.println("stuff - show what you're carrying");
     System.out.println("quit - quit game");
     System.out.println("************************");
   }
