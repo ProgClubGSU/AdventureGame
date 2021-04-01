@@ -2,11 +2,13 @@ import java.util.*;
 
 public class AdventureData {
 
-  public static void interactIntroSteve () {
+  public static Character interactIntroSteve (String playerName) {
 
-    Character IntroSteve = new Character("Steve Sminkle");
+    Character player = new Character(playerName);
 
-    IntroSteve.setScript(
+    Character introSteve = new Character("Steve Sminkle");
+
+    introSteve.setScript(
         new DialogNode(
             "You mind if I ask you a few question?",
             Map.of(
@@ -31,9 +33,11 @@ public class AdventureData {
 
     );
 
+    introSteve.interact(player);
+    return player;
   }
 
-  public static Character loadGameDataAndMC (String mainCharacterName) {
+  public static boolean loadGameDataAndMC (Character player) {
     // Locations
     Location studentCenter = new Location("Student Center",
         "You are at the Student Center. Here is the scene of the crime and Glenda the girl scout's usual cookie stall location.");
@@ -64,6 +68,12 @@ public class AdventureData {
     Location downStairs = new Location("Downstairs in Langdale",
         "You find the Janitor's closet and conveniently the Janitor. She demands you exclusively call her by the title");
 
+    // Admissions Office
+    Location office = new Location("Admissions Office",
+        "You see where people should be working but strangely there's no one here");
+    Location hallway = new Location("Admissions Office Hallway",
+        "There appears to be a small lounge area with an appropriately small fridge. " +
+            "There is also a wall safe containing the CCTV servers");
 
     //Objects
     // General - These can drop randomly from vending machines
@@ -79,26 +89,38 @@ public class AdventureData {
 
     // Langdale Hall
     Item keys = new Item("Keys", "Key to the security room");
-    Item recountedTestimony = new Item("Recounted Testimony", "Evidence");
+    Item recountedTestimony = new Item("Recounted Testimony",
+        "You now no longer have Xavier’s word against you. This is his recounted testimony.");
 
     // Student Center
-    Item redMarker = new Item("Red Marker", "Evidence");
-    Item receiptOfTotalSale = new Item("Receipt of Total Sale", "Evidence");
+    Item redMarker = new Item("Red Marker",
+        "A bright red marker, just like the one used for the crime.");
+    Item receiptOfTotalSale = new Item("Receipt of Total Sale",
+        "Shows proof that Glenda has been doing considerably well since the incident.");
 
     // Characters
-    Character SteveSminkle = new Character("Steve Sminkle", admissionsOffice);
-    Character Xavier = new Character("Xavier", langdaleHall);
-    Character Glenda = new Character("Glenda", cookieStall);
-    Character Janitor = new Character("The Janitor", downStairs);
+    Character steveSminkle = new Character("Steve Sminkle",
+        "Campus Cop and head of the Case. Speaks in a nasally tone.", admissionsOffice);
+    Character xavier = new Character("Xavier",
+        "Student and alleged witness to the crime. Wears an impressively big jacket. Conveniently with a name tag", insideLangdale);
+    Character glenda = new Character("Glenda",
+        "Girl Scout with an entrepreneurial spirit. Keeps her cookie stall right by the panther statue. " +
+            "9-years-old but nearly has all the badges", cookieStall);
+    Character janitor = new Character("The Janitor",
+        "She won't let you call her anything else. Loves girl scout cookies.", downStairs);
 
     // Script wiring
 
     // Location Wiring
-    studentCenter.addPerson(SteveSminkle);
+    player.setCurrentLocation(langdaleHall);  // starting position is langdale for the player
 
-    langdaleHall.addPerson(Xavier);
+    admissionsOffice.addPerson(steveSminkle);
 
-    cookieStall.addPerson(Glenda);
+    insideLangdale.addPerson(xavier);
+
+    cookieStall.addPerson(glenda);
+
+    downStairs.addPerson(janitor);
 
     studentCenter.addNeighbor("further west", admissionsOffice);
     admissionsOffice.addNeighbor("further east", studentCenter);
@@ -113,6 +135,6 @@ public class AdventureData {
     langdaleHall.addNeighbor("further east", admissionsOffice);
     admissionsOffice.addNeighbor("further west", langdaleHall);
 
-    return new Character(mainCharacterName, studentCenter);
+    return true;
   }
 }

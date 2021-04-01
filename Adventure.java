@@ -5,9 +5,11 @@ public class Adventure {
     Scanner input = new Scanner(System.in);
 
     // Player name and game introduction
-    String playerName = playIntro(input);
+    Character player = playIntro(input);
 
-    Character player = AdventureData.loadGameDataAndMC(playerName);
+    if (!AdventureData.loadGameDataAndMC(player)) {
+
+    }
 
     String choice;
     boolean endGame = false;
@@ -82,7 +84,7 @@ public class Adventure {
 
   }
 
-  private static String playIntro (Scanner input) {
+  private static Character playIntro (Scanner input) {
     System.out.println("Today is Monday. You've been busy coordinating student tours and doing other" +
         " extracurricular work for a while now. Your name is well known amongst the student body. You figure" +
         " you'd start your day right by getting some breakfast from the student center but, when you arrive" +
@@ -105,9 +107,7 @@ public class Adventure {
     String name = input.nextLine().trim();  // player name
 
     // Setup IntroSteve OR Just ask adventure data to instantiate IntroSteve and interact
-    AdventureData.interactIntroSteve();
-
-    return name;
+    return AdventureData.interactIntroSteve(name);
   }
 
   private static void printHelpScreen () {
