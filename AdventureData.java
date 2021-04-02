@@ -214,6 +214,7 @@ public class AdventureData {
 										"How would you like to be nominated for the annual uh… 9-year-olds of entrepreneurial excellence award?",
 											new DialogNode(
 											"\"Oh boy would I!!\" You sneakily tell Glenda you’ll need proof of all the incredible sales she’s been making. She happily reaches into her little makeshift register and pulls out the Receipt of Total Sale.")
+
 									)
 								)
 							)
@@ -223,21 +224,6 @@ public class AdventureData {
 					)
 				)
 			);
-
-			// new ArrayList<>(
-			// 								List.of(
-			// 									new SimpleEntry<>(
-			// 										"I’ve got some free time if you need any help with anything.", 
-			// 										new DialogNode(
-			// 											"\"That would be great! I’ve been swamped with all the business, but I want to be MORE swamped! Could you make some flyers for me? I’d really appreciate it.\"")
-			// 											)
-			// 											// new SimpleEntry<>(
-			// 											// 	"How would you like to be nominated for the annual uh… 9-year-olds of entrepreneurial excellence award?",
-			// 											// 	new DialogNode(
-			// 											// 		"\"Oh boy would I!!\" You sneakily tell Glenda you’ll need proof of all the incredible sales she’s been making. She happily reaches into her little makeshift register and pulls out the Receipt of Total Sale.")
-			// 											// )
-			// 										)
-			// 							)
 				
 
 		// Steve Sminkle Script:
