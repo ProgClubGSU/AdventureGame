@@ -92,7 +92,7 @@ public class AdventureData {
     // Langdale Hall
     Location insideLangdale = new Location("Inside Langdale Hall",
         "When you first walk in and step up the stairs, you enter a small elevator lobby with a couple " +
-            "of chairs, a vending machine and a student fidgeting with a coffee machine");
+            "of chairs, a vending machine and Xavier sitting in a lounge chair");
     Location downStairs = new Location("Downstairs in Langdale",
         "You find the Janitor's closet and conveniently the Janitor. She demands you exclusively call her by the title");
 
@@ -199,6 +199,25 @@ public class AdventureData {
                             null,
                             new ArrayList<>(),
                             List.of(redMarker)
+                        )
+                    ),
+                    new SimpleEntry<>(
+                        "Here, look at this total receipt of sale",
+                        new DialogNode(
+                            "Holy cow! I had no idea cookies could be so profitable! No wonder she sets the" +
+                                " cookie stall right next to the panther! But this definitely isn’t incriminating by itself.",
+                            null,
+                            new ArrayList<>(),
+                            List.of(receiptOfTotalSale)
+                        )
+                    ),
+                    new SimpleEntry<>(
+                        "Here, look at this red marker and this receipt of sale",
+                        new DialogNode(
+                            "I see… so Glenda did this to attract business? Geez I wonder why a 9-year-old is" +
+                                " so obsessed with entrepreneurship anyways. Well, this is definitely enough to convince me.",
+                            List.of(redMarker, receiptOfTotalSale),
+                            recountedTestimony
                         )
                     )
                 )
@@ -322,7 +341,8 @@ public class AdventureData {
                                                 " Sorry for the confusion. No hard feelings right?" +
                                                 " He doesn’t wait for your response and presumably heads" +
                                                 " towards the Student Center to apprehend the real criminal.",
-                                            List.of(redMarker, receiptOfTotalSale, recountedTestimony, securityTape)
+                                            List.of(redMarker, receiptOfTotalSale, recountedTestimony, securityTape),
+                                            true
                                         ) // Win Condition
                                     )
                                 )
@@ -361,6 +381,25 @@ public class AdventureData {
                     new SimpleEntry<>(
                         "You sure you wouldn't rather go by your name?",
                         new DialogNode("Look, how about you let me do me and I'll let you do you yea?")
+                    )
+                )
+            )
+        )
+    );
+
+    vault.setScript(
+        new DialogNode(
+            "This is the vault of all CCTV footage",
+            null,
+            new ArrayList<>(
+                List.of(
+                    new SimpleEntry<>(
+                        "Please use a key",
+                        new DialogNode(
+                            "You open the safe and retrieve the correct security tape",
+                            List.of(keys),
+                            securityTape
+                        )
                     )
                 )
             )
