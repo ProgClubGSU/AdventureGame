@@ -114,6 +114,8 @@ public class AdventureData {
         "A bright red marker, just like the one used for the crime.");
     Item receiptOfTotalSale = new Item("Receipt of Total Sale",
         "Shows proof that Glenda has been doing considerably well since the incident.");
+    Item cookies = new Item("Cookies",
+        "Delicious cookies from the cookie stall near the panther statue");
 
     // Characters
     Character steveSminkle = new Character("Steve Sminkle",
@@ -125,14 +127,16 @@ public class AdventureData {
             "9-years-old but nearly has all the badges", cookieStall);
     Character janitor = new Character("The Janitor",
         "She won't let you call her anything else. Loves girl scout cookies.", downStairs);
+    Character vault = new Character ("The Wall Safe",
+        "This contains all of the security tapes generated from the various CCTV cameras", hallway);
 
     // Script wiring
 
 
     // Location Wiring
-    player.setCurrentLocation(langdaleHall);  // starting position is langdale for the player
+    player.setCurrentLocation(insideLangdale);
 
-    admissionsOffice.addPerson(steveSminkle);
+    office.addPerson(steveSminkle);
 
     insideLangdale.addPerson(xavier);
 
@@ -140,18 +144,50 @@ public class AdventureData {
 
     downStairs.addPerson(janitor);
 
+    hallway.addPerson(vault);
+
+    // student center
     studentCenter.addNeighbor("further west", admissionsOffice);
-    admissionsOffice.addNeighbor("further east", studentCenter);
 
     studentCenter.addNeighbor("west", cookieStall);
     cookieStall.addNeighbor("back", studentCenter);
-    studentCenter.addNeighbor("north", cafeteria);
+
+    studentCenter.addNeighbor("inside", cafeteria);
     cafeteria.addNeighbor("outside", studentCenter);
+
     studentCenter.addNeighbor("south", pantherStatue);
     pantherStatue.addNeighbor("back", studentCenter);
 
+    // langdale hall
     langdaleHall.addNeighbor("further east", admissionsOffice);
+
+    langdaleHall.addNeighbor("inside", insideLangdale);
+    insideLangdale.addNeighbor("outside", langdaleHall);
+
+    insideLangdale.addNeighbor("right", vendingMachine);
+    vendingMachine.addNeighbor("back", langdaleHall);
+
+    insideLangdale.addNeighbor("downstairs", downStairs);
+    downStairs.addNeighbor("upstairs", insideLangdale);
+
+    // admissions office
+    admissionsOffice.addNeighbor("further east", studentCenter);
     admissionsOffice.addNeighbor("further west", langdaleHall);
+
+    admissionsOffice.addNeighbor("inside", office);
+    office.addNeighbor("outside", admissionsOffice);
+
+    office.addNeighbor("left", hallway);
+    hallway.addNeighbor("right", office);
+
+    // Item wiring
+    xavier.addToInventory(recountedTestimony);
+
+    janitor.addToInventory(keys);
+
+    glenda.addToInventory(List.of(redMarker, receiptOfTotalSale, cookies));
+
+    vault.addToInventory(securityTape);
 
     return true;
   }

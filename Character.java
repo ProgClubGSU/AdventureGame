@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.util.*;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.List;
@@ -117,6 +116,10 @@ public class Character extends GameObject {
 
   public void addToInventory (Item toAdd) {
     inventory.add(toAdd);
+  }
+
+  public void addToInventory (List<Item> toAdd) {
+    inventory.addAll(toAdd);
   }
 
   public List<Item> getInventory () {
