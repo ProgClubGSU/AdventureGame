@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.AbstractMap.SimpleEntry;
 
 public class AdventureData {
 
@@ -13,13 +14,13 @@ public class AdventureData {
             "You mind if I ask you a few question?",
             new ArrayList<>(
                 List.of(
-                    new AbstractMap.SimpleEntry<String, DialogNode>(
+                    new SimpleEntry<>(
                         "Why do you think it's me?",
                         new DialogNode("Your friend Xavier spotted you at the scene of the crime shortly after the incident " +
                             "took place! Next time you plan on vandalizing school property, give it some thought at least ",
                             new ArrayList<>(
                                 List.of(
-                                    new AbstractMap.SimpleEntry<>(
+                                    new SimpleEntry<>(
                                         "Who's Xavier?",
                                         new DialogNode(
                                             "Very funny. The Disciplinary Board is meeting inside the student center as " +
@@ -30,20 +31,20 @@ public class AdventureData {
                             )
                         )
                     ),
-                        new AbstractMap.SimpleEntry<String, DialogNode>(
-                            "I'm innocent I swear!!",
-                            new DialogNode(
-                                "Look, kid, if you really didn't do this, you're going to" +
+                    new SimpleEntry<>(
+                        "I'm innocent I swear!!",
+                        new DialogNode(
+                            "Look, kid, if you really didn't do this, you're going to" +
                                 "have to find me some kind of evidence. Right now, all teh cards are stacked against you. I've got" +
                                 "a witness, Xavier saying they saw you at the scene of the crime at the time in question. Give me" +
                                 "something better than that and, I'll hear it out."
-                            )
-                        ),
-                        new AbstractMap.SimpleEntry<String, DialogNode>(
-                            "Awwww, you got me.",
-                            new DialogNode("You shrug and Steve begins to turn red. He huffily gets" +
-                                "his handcuffs out and arrests you on felony vandalism", false) // first bad end
                         )
+                    ),
+                    new SimpleEntry<>(
+                        "Awwww, you got me.",
+                        new DialogNode("You shrug and Steve begins to turn red. He huffily gets" +
+                            "his handcuffs out and arrests you on felony vandalism", false) // first bad end
+                    )
                     )
                 )
             )
