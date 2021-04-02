@@ -1,39 +1,39 @@
 import java.util.*;
 
-public class Location extends GameObject{
-  
+public class Location extends GameObject {
+
   private ArrayList<Character> people;
   private ArrayList<Item> items;
   private HashMap<String, Location> neighbors;
 
-  public Location(String name, String description) {
-  	super(name, description);
+  public Location (String name, String description) {
+    super(name, description);
     people = new ArrayList<>();
     items = new ArrayList<>();
     neighbors = new HashMap<>();
   }
 
-	public String getLocation() {
-		return this.getName();
-	}
-  
-  public void addPerson(Character person) {
+  public String getLocation () {
+    return this.getName();
+  }
+
+  public void addPerson (Character person) {
     people.add(person);
   }
 
-  public void removePerson(Character person) {
+  public void removePerson (Character person) {
     people.remove(person);
   }
-  
-  public void addItem(Item item) {
+
+  public void addItem (Item item) {
     items.add(item);
   }
-  
-  public void removeItem(Item item) {
+
+  public void removeItem (Item item) {
     items.remove(item);
   }
 
-  public Item containItem(String name) {
+  public Item containItem (String name) {
     for (Item i : this.items) {
       if (i.getName().equals(name)) {
         return i;
@@ -43,7 +43,7 @@ public class Location extends GameObject{
     return null;
   }
 
-  public Character containCharacter(String name) {
+  public Character containCharacter (String name) {
     for (Character c : this.people) {
       if (c.getName().equals(name)) {
         return c;
@@ -53,28 +53,28 @@ public class Location extends GameObject{
     return null;
   }
 
-  public void addNeighbor(String direction, Location neighbor) {
+  public void addNeighbor (String direction, Location neighbor) {
     neighbors.put(direction, neighbor);
   }
 
-  public Location getNeighbor(String direction) {
+  public Location getNeighbor (String direction) {
     return neighbors.get(direction);
   }
-    
+
   // Unless this game suddenly becomes a survival horror,
   // we won't need to remove doors between places
-  public void removeNeighbor(String direction) {
+  public void removeNeighbor (String direction) {
     throw new UnsupportedOperationException("removeNeighbor not written");
   }
 
-  public void printItemsHere() {
+  public void printItemsHere () {
     System.out.println("Items Here: ");
     for (Item curr : items) {
       System.out.println("- " + curr.getName());
     }
   }
-  
-  public void printInfo() {
+
+  public void printInfo () {
     System.out.println(getName());
     System.out.println(getDescription());
     System.out.println("Nearby:");
@@ -83,8 +83,8 @@ public class Location extends GameObject{
     }
   }
 
-  public String toString() {
+  public String toString () {
     return getName() + " - " + getDescription();
   }
-  
+
 }
