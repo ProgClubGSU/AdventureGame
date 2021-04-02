@@ -55,6 +55,8 @@ public class DialogNode {
     this.reward = reward;
   }
 
+  public Boolean getWin() { return this.wins; }
+
   public Item getReward() {
     return this.reward;
   }
