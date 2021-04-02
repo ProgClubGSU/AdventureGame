@@ -5,7 +5,11 @@ public class Adventure {
     Scanner input = new Scanner(System.in);
 
     // Player name and game introduction
-    Character player = playIntro(input);
+    Character player = null;
+
+    while (player == null) {
+      player = playIntro(input);
+    }
 
     if (!AdventureData.loadGameDataAndMC(player)) {
       System.out.println("Something broke in the game engine that shouldn't be possible");
@@ -17,13 +21,13 @@ public class Adventure {
     while (!endGame) {
       player.getCurrentLocation().printInfo();
       System.out.print("What would you like to do? ");
-      choice = input.nextLine().toLowerCase();
+      choice = input.nextLine();
       String[] command = choice.split(" ", 2);
       if (choice.length() == 0 || command.length == 0) {
         System.out.println("Please input a command or type 'help' for options.");
       }
       else {
-        switch (command[0]) {
+        switch (command[0].toLowerCase()) {
           case "quit":
             endGame = true;
             break;

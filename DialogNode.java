@@ -9,27 +9,54 @@ public class DialogNode {
   // in most cases, this will also be null
   private final Item reward;
 
-  private List<Item> required = new ArrayList<>();
+  private List<Item> required;
 
   public DialogNode (String blurb) {
     this.blurb = blurb;
     this.choices = new ArrayList<>();
     this.wins = null;
     this.reward = null;
+    this.required = null;
   }
 
-  public DialogNode (String blurb, boolean b) {
+  public DialogNode (String blurb, Boolean wins) {
     this.blurb = blurb;
     this.choices = new ArrayList<>();
-    this.wins = b;
+    this.wins = wins;
     this.reward = null;
+    this.required = null;
   }
 
-  public DialogNode (String blurb, List<AbstractMap.SimpleEntry<String, DialogNode>> choices) {
+  public DialogNode (String blurb, Item reward) {
     this.blurb = blurb;
-    this.choices = choices;
+    this.choices = new ArrayList<>();
+    this.wins = null;
+    this.reward = reward;
+    this.required = null;
+  }
+
+  public DialogNode (String blurb, List<Item> required) {
+    this.blurb = blurb;
+    this.choices = new ArrayList<>();
     this.wins = null;
     this.reward = null;
+    this.required = required;
+  }
+
+  public DialogNode (String blurb, List<Item> required, Boolean wins) {
+    this.blurb = blurb;
+    this.choices = new ArrayList<>();
+    this.wins = wins;
+    this.reward = null;
+    this.required = required;
+  }
+
+  public DialogNode(String blurb, List<Item> required, Item reward) {
+    this.blurb = blurb;
+    this.choices = new ArrayList<>();
+    this.wins = null;
+    this.reward = reward;
+    this.required = required;
   }
 
   public DialogNode (String blurb, Boolean wins, List<AbstractMap.SimpleEntry<String, DialogNode>> choices) {
@@ -37,6 +64,7 @@ public class DialogNode {
     this.choices = choices;
     this.wins = wins;
     this.reward = null;
+    this.required = null;
   }
 
   public DialogNode (String blurb, Boolean wins, List<AbstractMap.SimpleEntry<String, DialogNode>> choices, List<Item> required) {

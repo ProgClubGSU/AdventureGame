@@ -31,22 +31,26 @@ public class Character extends GameObject {
   }
 
   // TODO: interact method for NPCs
-  public void interact (Character playerInstance) {
-    // change this to the actual interaction model
+  public Boolean interact (Character playerInstance) {
     Scanner interactionScanner = new Scanner(System.in);
 
-    boolean conversationEnded = false;
     DialogNode currentNode = this.script;
     List<Item> playerInventory = playerInstance.inventory;
 
+
+    // conversation state flags
+    boolean noChoices = false;
+    boolean missingItems = false;
+    boolean userQuit = false;
+
     // TODO: This while loop is faulty, find a different condition
-    while (!conversationEnded || true) {
+    while (true) {
       List<Item> requirements = currentNode.getRequired();
 
-      if (!requirements.isEmpty() && !playerInventory.containsAll(requirements)) {
+      if (requirements != null && !playerInventory.containsAll(requirements)) {
         // the user doesn't have enough to progress the dialogue
         System.out.println("I have nothing to say to you right now.");
-        conversationEnded = true;
+        missingItems = true;
         break;
       }
 
@@ -61,7 +65,7 @@ public class Character extends GameObject {
 
       if (currentNode.getChoices().isEmpty()) {
         System.out.println("I have to go now.");
-        conversationEnded = true;
+        noChoices = true;
         break;
       }
 
@@ -77,14 +81,14 @@ public class Character extends GameObject {
         else {
           // Game loss
           System.out.println("You have failed to clear your name as the panther vandal and now lead a life of shame. Better luck next time.");
-          // TODO: Find way to start the game again
-          System.exit(0); // just quitting for now.
+
+          return  false;
         }
       }
 
       int optionIterator = 1;
       for (SimpleEntry<String, DialogNode> kv : currentNode.getChoices()) {
-        if (!kv.getValue().getRequired().isEmpty()) {
+        if (kv.getValue().getRequired() == null) {
           System.out.printf("(%d). %s%n", optionIterator, kv.getKey());
         }
         else {
@@ -102,7 +106,6 @@ public class Character extends GameObject {
         String input = interactionScanner.nextLine().trim().toLowerCase();
         if (input.equals("q")) {
           System.out.println("Okay, bye");
-          conversationEnded = true;
           break;
         }
         else {
@@ -111,12 +114,14 @@ public class Character extends GameObject {
       }
 
       if (optionChosen <= -1) {
-        conversationEnded = true;
+        userQuit = true;
         break;
       }
 
       currentNode = currentNode.getChoices().get(optionChosen - 1).getValue();  // This should work
     }
+
+    return (userQuit || noChoices || missingItems);
   }
 
   public void addToInventory (Item toAdd) {
