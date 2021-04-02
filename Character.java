@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.util.*;
+import java.util.AbstractMap.SimpleEntry;
 import java.util.List;
 
 public class Character extends GameObject {
@@ -53,14 +54,12 @@ public class Character extends GameObject {
      */
 
     boolean conversationEnded = false;
-    AbstractMap.SimpleEntry<String, DialogNode> currentNode = this.script;
+    DialogNode currentNode = this.script;
     List<Item> playerInventory = playerInstance.inventory;
 
     // TODO: This while loop is faulty, find a different condition
     while (!conversationEnded || true) {
       List<Item> requirements = currentNode.getRequired();
-      // stores the options so we can access them
-      String[] options = currentNode.getChoices().keySet().toArray(new String[0]);
 
       if (!requirements.isEmpty() && !playerInventory.containsAll(requirements)) {
         // the user doesn't have enough to progress the dialogue
@@ -78,8 +77,14 @@ public class Character extends GameObject {
         System.out.printf("%s gave you: %s", this.getName(), possibleReward.getName());
       }
 
+      if (currentNode.getChoices().isEmpty()) {
+        System.out.println("I have to go now.");
+        conversationEnded = true;
+        break;
+      }
+
       int optionIterator = 1;
-      for (Map.Entry<String, DialogNode> kv : currentNode.getChoices().entrySet()) {
+      for (SimpleEntry<String, DialogNode> kv : currentNode.getChoices()) {
         System.out.printf("(%d). %s%n", optionIterator, kv.getKey());
 
         optionIterator += 1;
@@ -87,6 +92,7 @@ public class Character extends GameObject {
 
       // If we don't do this, it'll leave a \r\n in stdin which has some wild consequences
       int optionChosen = Integer.parseInt(interactionScanner.nextLine().trim());
+
       while (optionChosen > optionIterator) {
         System.out.println("Please select a valid option or use \"q\" to end the conversation here:");
         String input = interactionScanner.nextLine().trim().toLowerCase();
@@ -105,7 +111,7 @@ public class Character extends GameObject {
         break;
       }
 
-      currentNode = currentNode.getChoices().get(options[optionChosen - 1]);  // This should work
+      currentNode = currentNode.getChoices().get(optionChosen - 1).getValue();  // This should work
     }
   }
 
