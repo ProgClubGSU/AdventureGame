@@ -66,7 +66,6 @@ public class Character extends GameObject {
       if (currentNode.getChoices().isEmpty()) {
         System.out.println("I have to go now.");
         noChoices = true;
-        break;
       }
 
       Boolean winCondition = currentNode.getWin();
@@ -81,8 +80,7 @@ public class Character extends GameObject {
         else {
           // Game loss
           System.out.println("You have failed to clear your name as the panther vandal and now lead a life of shame. Better luck next time.");
-
-          return  false;
+          return false;
         }
       }
 
@@ -115,8 +113,8 @@ public class Character extends GameObject {
 
       if (optionChosen <= -1) {
         userQuit = true;
-        break;
       }
+
 
       currentNode = currentNode.getChoices().get(optionChosen - 1).getValue();  // This should work
     }
