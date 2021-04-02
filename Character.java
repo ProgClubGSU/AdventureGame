@@ -35,6 +35,7 @@ public class Character extends GameObject {
     Scanner interactionScanner = new Scanner(System.in);
 
     DialogNode currentNode = this.script;
+    DialogNode previousNode = null;
     List<Item> playerInventory = playerInstance.inventory;
 
 
@@ -44,7 +45,7 @@ public class Character extends GameObject {
     boolean userQuit = false;
 
     // TODO: This while loop is faulty, find a different condition
-    while (true) {
+    do {
       List<Item> requirements = currentNode.getRequired();
 
       if (requirements != null && !playerInventory.containsAll(requirements)) {
@@ -59,13 +60,19 @@ public class Character extends GameObject {
       Item possibleReward = currentNode.getReward();
 
       if (possibleReward != null) {
-        playerInstance.addToInventory(possibleReward);
-        System.out.printf("%s gave you: %s", this.getName(), possibleReward.getName());
+        if (this.inventory.remove(possibleReward)) {
+          playerInstance.addToInventory(possibleReward);
+          System.out.printf("%s gave you: %s%n", this.getName(), possibleReward.getName());
+        }
+        else {
+          System.out.printf("You already have %s%n", possibleReward.getName());
+        }
       }
 
-      if (currentNode.getChoices().isEmpty()) {
+      if (currentNode.getChoices() == null) {
         System.out.println("I have to go now.");
         noChoices = true;
+        break;
       }
 
       Boolean winCondition = currentNode.getWin();
@@ -89,8 +96,11 @@ public class Character extends GameObject {
         if (kv.getValue().getRequired() == null) {
           System.out.printf("(%d). %s%n", optionIterator, kv.getKey());
         }
-        else {
+        else if (!playerInventory.containsAll(kv.getValue().getRequired())) {
           System.out.printf("%s [Missing items]%n", kv.getKey());
+        }
+        else {
+          System.out.printf("(%d). %s%n", optionIterator, kv.getKey());
         }
 
         optionIterator += 1;
@@ -104,22 +114,23 @@ public class Character extends GameObject {
         String input = interactionScanner.nextLine().trim().toLowerCase();
         if (input.equals("q")) {
           System.out.println("Okay, bye");
+          userQuit = true;
           break;
         }
         else {
           optionChosen = Integer.parseInt(input);
         }
       }
-
-      if (optionChosen <= -1) {
-        userQuit = true;
+      if (noChoices) {
+        currentNode = previousNode;
       }
+      else {
+        previousNode = currentNode;
+        currentNode = currentNode.getChoices().get(optionChosen - 1).getValue();  // This should work
+      }
+    } while (true);
 
-
-      currentNode = currentNode.getChoices().get(optionChosen - 1).getValue();  // This should work
-    }
-
-    return (userQuit || noChoices || missingItems);
+    return true;
   }
 
   public void addToInventory (Item toAdd) {
