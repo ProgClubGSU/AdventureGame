@@ -111,6 +111,7 @@ public class AdventureData {
 
     // Script wiring
 
+
     // Location Wiring
     player.setCurrentLocation(langdaleHall);  // starting position is langdale for the player
 

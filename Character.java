@@ -32,8 +32,8 @@ public class Character extends GameObject {
   public void interact (Character playerInstance) {
     // change this to the actual interaction model
     Scanner interactionScanner = new Scanner(System.in);
-    // logic
 
+    // logic
     /*
         Create Scanner
 
@@ -54,16 +54,27 @@ public class Character extends GameObject {
     DialogNode currentNode = this.script;
     List<Item> playerInventory = playerInstance.inventory;
 
-    while (!currentNode.getChoices().isEmpty()) {
+    // TODO: This while loop is faulty, find a different condition
+    while (!conversationEnded || true) {
       List<Item> requirements = currentNode.getRequired();
+      // stores the options so we can access them
+      String[] options = currentNode.getChoices().keySet().toArray(new String[0]);
 
-      if (!requirements.isEmpty() && !playerInventory.containsAll(requirements)){
+      if (!requirements.isEmpty() && !playerInventory.containsAll(requirements)) {
         // the user doesn't have enough to progress the dialogue
         System.out.println("I have nothing to say to you right now.");
+        conversationEnded = true;
         break;
       }
 
       System.out.println(currentNode.getBlurb());
+
+      Item possibleReward = currentNode.getReward();
+
+      if (possibleReward != null) {
+        playerInstance.addToInventory(possibleReward);
+        System.out.printf("%s gave you: %s", this.getName(), possibleReward.getName());
+      }
 
       int optionIterator = 1;
       for (Map.Entry<String, DialogNode> kv : currentNode.getChoices().entrySet()) {
@@ -79,6 +90,7 @@ public class Character extends GameObject {
         String input = interactionScanner.nextLine().trim().toLowerCase();
         if (input.equals("q")) {
           System.out.println("Okay, bye");
+          conversationEnded = true;
           break;
         }
         else {
@@ -87,11 +99,11 @@ public class Character extends GameObject {
       }
 
       if (optionChosen <= -1) {
+        conversationEnded = true;
         break;
       }
 
-      // figure out how a number can give us the selected option
-
+      currentNode = currentNode.getChoices().get(options[optionChosen - 1]);  // This should work
     }
   }
 
