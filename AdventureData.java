@@ -43,11 +43,12 @@ public class AdventureData {
                     new SimpleEntry<>(
                         "Awwww, you got me.",
                         new DialogNode("You shrug and Steve begins to turn red. He huffily gets" +
-                            "his handcuffs out and arrests you on felony vandalism", false) // first bad end
-                    )
+                            "his handcuffs out and arrests you on felony vandalism", false
+                        ) // first bad end
                     )
                 )
             )
+        )
 
     );
     introSteve.interact(player);
@@ -126,31 +127,41 @@ public class AdventureData {
     Character janitor = new Character("The Janitor",
         "She won't let you call her anything else. Loves girl scout cookies.", downStairs);
 
-     // <------------------ SCRIPT WIRING ---------------------->
+    // <------------------ SCRIPT WIRING ---------------------->
 
-		//Xavier Script:
-		xavier.setScript(
+    //Xavier Script:
+    xavier.setScript(
         new DialogNode(
             "\"Oh uh… hey\". - Xavier looks at you nervously.",
             new ArrayList<>(
                 List.of(
                     new SimpleEntry<>(
                         "Why are you lying about me Xavier?",
-                        new DialogNode("I-I’m not! Well, I mean… I don’t know. Everything happened so fast…” he looks down at the floor. “I… I was close to the student center when it happened, I didn’t see it or anything, but that campus cop came up to me all frazzled and started accusing me! I didn’t know what to do and your name just fell out of my mouth. I’m really sorry, I didn’t mean to cause trouble.",
+                        new DialogNode("I-I’m not! Well, I mean… I don’t know. Everything happened so fast…”" +
+		                        " he looks down at the floor. “I… I was close to the student center when it happened," +
+		                        " I didn’t see it or anything, but that campus cop came up to me all frazzled and started" +
+		                        " accusing me! I didn’t know what to do and your name just fell out of my mouth. I’m really" +
+		                        " sorry, I didn’t mean to cause trouble.",
                             new ArrayList<>(
                                 List.of(
                                     new SimpleEntry<>(
-                                        "Cause trouble? They might not let me graduate or worse! Can’t you just tell that cop you were lying?",
+                                        "Cause trouble? They might not let me graduate or worse! Can’t you just tell" +
+		                                        " that cop you were lying?",
                                         new DialogNode(
-                                             "Hah! Yea right! He’ll just think it was me!” Xavier stands defensively. “If you can find out who really did it, maybe then I’ll recount my testimony, but I don’t want this all to fall on me when there’s nowhere left to turn."
+                                            "Hah! Yea right! He’ll just think it was me!” Xavier stands defensively." +
+		                                            " “If you can find out who really did it, maybe then I’ll recount my" +
+		                                            " testimony, but I don’t want this all to fall on me when there’s" +
+		                                            " nowhere left to turn."
                                         )
                                     ),
-																		new SimpleEntry<>(
-																				"Got any idea who DID do it?",
-																				new DialogNode(
-																						"Xavier pauses to think for a moment. “No idea, but maybe you could ask Glenda? The girl scout? She’s always at the student center at her cookie stall. Maybe she saw something."
+                                    new SimpleEntry<>(
+                                        "Got any idea who DID do it?",
+                                        new DialogNode(
+                                            "Xavier pauses to think for a moment. “No idea, but maybe you could" +
+		                                            " ask Glenda? The girl scout? She’s always at the student center at" +
+		                                            " her cookie stall. Maybe she saw something."
                                         )
-																		)
+                                    )
                                 )
                             )
                         )
@@ -158,123 +169,114 @@ public class AdventureData {
                     new SimpleEntry<>(
                         "You did it didn’t you! I’ll get you for this!!!",
                         new DialogNode(
-                            "Huh, what? No! I swear!” Xavier runs off. It’s probably going to be pretty hard to prove your innocence without his recounted testimony.", false
-												) //Second bad end
-                    )
-
-										//<---------------Getting some error here!!---------------------->
-
-										//If User has the Red Marker Xavier displays this text:
-										// new SimpleEntry<>(
-										// 	"Woah… you got this from Glenda? This looks just like the kind of marker used on the statue! But it isn’t enough by itself… Why would she do something like that?"
-										// 	// null,new ArrayList<>(),new ArrayList<>(List.of(redMarker))
-										// )
-
-										// //If User has the Receipt of Total Sale Xavier displays this text:
-										// new SimpleEntry<>("Holy cow! I had no idea cookies could be so profitable! No wonder she sets the cookie stall right next to the panther! But this definitely isn’t incriminating by itself.", null, new ArrayList<>(), List.of(receiptOfTotalSale)
-                    // ),
-
-										// //If User has Red Marker && the Receipt of Total Sale Xavier displays this text:
-										// new SimpleEntry<>("I see… so Glenda did this to attract business? Geez I wonder why a 9-year-old is so obsessed with entrepreneurship anyways. Well, this is definitely enough to convince me.", null, new ArrayList<>(), List.of(redMarker, receiptOfTotalSale)
-										// )
-								)
-        		)
+                            "Huh, what? No! I swear!” Xavier runs off. It’s probably going to be pretty hard to" +
+		                            " prove your innocence without his recounted testimony.", false
+                        ) //Second bad end
+                    ),
+		                new SimpleEntry<>(
+				                "Here, look at this red marker",
+				                new DialogNode(
+				                		"Woah… you got this from Glenda? This looks just like the kind of marker used on" +
+								                " the statue! But it isn’t enough by itself… Why would she do something like that?",
+						                null,
+						                new ArrayList<>(),
+						                List.of(redMarker)
+				                )
+		                )
+                )
+            )
         )
     );
 
-		// Glenda Script:
-		glenda.setScript(
-			new DialogNode(
-				"Hey there! Would you like to buy some cookies?",
-				new ArrayList<>(
-					List.of(
-						new SimpleEntry<>(
-							"Sure", 
-							new DialogNode(
-							"You get some cookies from the stall. Glenda nearly sheds a tear. \"Thanks for your business!\""
-							) //ITEM RECIEVE ---fix
-						),
-						new SimpleEntry<>(
-							"Do you know anything about the incident?", 
-							new DialogNode(
-								"Glenda smiles innocently. \"Nope! Of course not. I’m literally 9-years-old, how could I do something oh-so-horrid?\"")
-						),
-						new SimpleEntry<>(
-						"How's business?",
-						new DialogNode(
-							"Glenda brightens up and proudly proclaims, \"Business has been great! It’s really been booming since this morning. You know, cause like, the panther and all. People are really fascinated.\"", 
-							new ArrayList<>(
-								List.of(
+    // Glenda Script:
+    glenda.setScript(
+        new DialogNode(
+            "Hey there! Would you like to buy some cookies?",
+            new ArrayList<>(
+                List.of(
+                    new SimpleEntry<>(
+                        "Sure",
+                        new DialogNode(
+                            "You get some cookies from the stall. Glenda nearly sheds a tear. \"Thanks for your business!\""
+                        ) //ITEM RECIEVE ---fix
+                    ),
+                    new SimpleEntry<>(
+                        "Do you know anything about the incident?",
+                        new DialogNode(
+                            "Glenda smiles innocently. \"Nope! Of course not. I’m literally 9-years-old, how could I do something oh-so-horrid?\"")
+                    ),
+                    new SimpleEntry<>(
+                        "How's business?",
+                        new DialogNode(
+                            "Glenda brightens up and proudly proclaims, \"Business has been great! It’s really been booming since this morning. You know, cause like, the panther and all. People are really fascinated.\"",
+                            new ArrayList<>(
+                                List.of(
 
 
-									//<--------------Work on the obtains!!-------------------->
+                                    //<--------------Work on the obtains!!-------------------->
 
-									new SimpleEntry<>(
-										"I’ve got some free time if you need any help with anything.", 
-										new DialogNode(
-											"\"That would be great! I’ve been swamped with all the business, but I want to be MORE swamped! Could you make some flyers for me? I’d really appreciate it.\"")
-									),
-									new SimpleEntry<>(
-										"How would you like to be nominated for the annual uh… 9-year-olds of entrepreneurial excellence award?",
-											new DialogNode(
-											"\"Oh boy would I!!\" You sneakily tell Glenda you’ll need proof of all the incredible sales she’s been making. She happily reaches into her little makeshift register and pulls out the Receipt of Total Sale.")
-									)
-								)
-							)
-							)
-						)
-						)
-					)
-				)
-			);
-				
-
-		// Steve Sminkle Script:
-		steveSminkle.setScript(
-				new DialogNode(
-					"You got some nerve showing up here. What do you want?", 
-					new ArrayList<>(
-						List.of(
-							new SimpleEntry<>(
-								"Security footage?", 
-								new DialogNode("I’m not partial to helping criminals. But… come to think of it, the security footage SHOULD show you at the scene of the crime. If only I could find the keys to the safe. Oh well! Good luck, kid.")
-							),
-							new SimpleEntry<>(
-								"I've got evidence for you.",
-								new DialogNode("Well what are you waiting for? Give it to me.")
-							)
+                                    new SimpleEntry<>(
+                                        "I’ve got some free time if you need any help with anything.",
+                                        new DialogNode(
+                                            "\"That would be great! I’ve been swamped with all the business, but I want to be MORE swamped! Could you make some flyers for me? I’d really appreciate it.\"")
+                                    ),
+                                    new SimpleEntry<>(
+                                        "How would you like to be nominated for the annual uh… 9-year-olds of entrepreneurial excellence award?",
+                                        new DialogNode(
+                                            "\"Oh boy would I!!\" You sneakily tell Glenda you’ll need proof of all the incredible sales she’s been making. She happily reaches into her little makeshift register and pulls out the Receipt of Total Sale.")
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    );
 
 
-
-							//<--------------Work on the give!!-------------------->
-						)
-					)
-				)
-		);
-
-
-		// Janitor Script:
-		janitor.setScript(
-				new DialogNode(
-					"\"Please, call me The Janitor. What can I do for you?\"", 
-					new ArrayList<>(
-						List.of(
-							new SimpleEntry<>(
-								"No no, what can I do for YOU?",
-								new DialogNode("\"Well, I am pretty hungry. Some of those girl scout cookies would really hit the spot. If you can grab some for me, I can give you these keys I found on the ground. I don’t know what they go to so they’re essentially useless but hey, seems fair to me.\"")
-
-							),
-							new SimpleEntry<>(
-								"You sure you wouldn’t rather go by your name?",
-								new DialogNode("\"Look, how about you let me do me and I’ll let you do you yea?\"")
-							)
-						)
-					)
-				)
-		);
+    // Steve Sminkle Script:
+    steveSminkle.setScript(
+        new DialogNode(
+            "You got some nerve showing up here. What do you want?",
+            new ArrayList<>(
+                List.of(
+                    new SimpleEntry<>(
+                        "Security footage?",
+                        new DialogNode("I’m not partial to helping criminals. But… come to think of it, the security footage SHOULD show you at the scene of the crime. If only I could find the keys to the safe. Oh well! Good luck, kid.")
+                    ),
+                    new SimpleEntry<>(
+                        "I've got evidence for you.",
+                        new DialogNode("Well what are you waiting for? Give it to me.")
+                    )
 
 
+                    //<--------------Work on the give!!-------------------->
+                )
+            )
+        )
+    );
 
+
+    // Janitor Script:
+    janitor.setScript(
+        new DialogNode(
+            "\"Please, call me The Janitor. What can I do for you?\"",
+            new ArrayList<>(
+                List.of(
+                    new SimpleEntry<>(
+                        "No no, what can I do for YOU?",
+                        new DialogNode("\"Well, I am pretty hungry. Some of those girl scout cookies would really hit the spot. If you can grab some for me, I can give you these keys I found on the ground. I don’t know what they go to so they’re essentially useless but hey, seems fair to me.\"")
+
+                    ),
+                    new SimpleEntry<>(
+                        "You sure you wouldn’t rather go by your name?",
+                        new DialogNode("\"Look, how about you let me do me and I’ll let you do you yea?\"")
+                    )
+                )
+            )
+        )
+    );
 
 
     // Location Wiring
