@@ -69,12 +69,6 @@ public class Character extends GameObject {
         }
       }
 
-      if (currentNode.getChoices() == null) {
-        System.out.println("I have to go now.");
-        noChoices = true;
-        break;
-      }
-
       Boolean winCondition = currentNode.getWin();
       // This node terminates the game, one way or another
       if (winCondition != null) {
@@ -89,6 +83,12 @@ public class Character extends GameObject {
           System.out.println("You have failed to clear your name as the panther vandal and now lead a life of shame. Better luck next time.");
           return false;
         }
+      }
+
+      if (currentNode.getChoices() == null) {
+        System.out.println("I have to go now.");
+        noChoices = true;
+        break;
       }
 
       int optionIterator = 1;
