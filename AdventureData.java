@@ -205,6 +205,10 @@ public class AdventureData {
 							"Glenda brightens up and proudly proclaims, \"Business has been great! It’s really been booming since this morning. You know, cause like, the panther and all. People are really fascinated.\"", 
 							new ArrayList<>(
 								List.of(
+
+
+									//<--------------Work on the obtains!!-------------------->
+
 									new SimpleEntry<>(
 										"I’ve got some free time if you need any help with anything.", 
 										new DialogNode(
@@ -214,7 +218,6 @@ public class AdventureData {
 										"How would you like to be nominated for the annual uh… 9-year-olds of entrepreneurial excellence award?",
 											new DialogNode(
 											"\"Oh boy would I!!\" You sneakily tell Glenda you’ll need proof of all the incredible sales she’s been making. She happily reaches into her little makeshift register and pulls out the Receipt of Total Sale.")
-
 									)
 								)
 							)
