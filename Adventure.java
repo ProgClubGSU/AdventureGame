@@ -8,7 +8,8 @@ public class Adventure {
     Character player = playIntro(input);
 
     if (!AdventureData.loadGameDataAndMC(player)) {
-
+      System.out.println("Something broke in the game engine that shouldn't be possible");
+      System.exit(-1);
     }
 
     String choice;
@@ -45,6 +46,7 @@ public class Adventure {
               System.out.println(possibleItem.getDescription());
 
               // add into inventory
+              player.addToInventory(possibleItem);
             }
 
             Character possiblCharacter = player.getCurrentLocation().containCharacter(examineName);
@@ -52,6 +54,7 @@ public class Adventure {
               System.out.println(possiblCharacter.getDescription());
 
               // Start interaction
+              possiblCharacter.interact(player);
             }
 
             break;
@@ -89,13 +92,19 @@ public class Adventure {
         " extracurricular work for a while now. Your name is well known amongst the student body. You figure" +
         " you'd start your day right by getting some breakfast from the student center but, when you arrive" +
         " things are not how they normally are. The panther statue next to the student center has been " +
-        "defaced in bright red marker and several students have gathered to witness the ensuing madness.\n");
+        "defaced in bright red marker and several students have gathered to witness the ensuing madness.\n Press ENTER");
+
+    input.nextLine();
 
     System.out.println("You hear a nasally tone rise above the crowd of students, most of whom are busy taking" +
         " pictures or buying girl scout cookies from the nearby cookie stall. A rather irritated looking man" +
-        " parts the students and walks with purpose towards you.");
+        " parts the students and walks with purpose towards you.\n Press ENTER");
 
-    System.out.println("The man introduces himself as Steve Sminkle, Campus Cop.");
+    input.nextLine();
+
+    System.out.println("The man introduces himself as Steve Sminkle, Campus Cop.\n Press ENTER");
+
+    input.nextLine();
 
     System.out.println("Steve Sminkle: You mind if I ask you a few questions?");
 
