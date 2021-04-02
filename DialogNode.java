@@ -9,7 +9,7 @@ public class DialogNode {
   // in most cases, this will also be null
   private final Item reward;
 
-  private List<Item> required;
+  private List<Item> required = new ArrayList<>();
 
   public DialogNode (String blurb, Map<String, DialogNode> choices) {
     this.blurb = blurb;
