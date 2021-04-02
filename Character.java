@@ -36,23 +36,6 @@ public class Character extends GameObject {
     // change this to the actual interaction model
     Scanner interactionScanner = new Scanner(System.in);
 
-    // logic
-    /*
-        Create Scanner
-
-        loop
-        Print DialogNode.root
-        Print all choice options
-        ask for choice number
-
-        while ! valid choice number repeat
-        once valid
-
-        currentNode = root.choice.child
-
-        end loop if root.choices.isEmpty
-     */
-
     boolean conversationEnded = false;
     DialogNode currentNode = this.script;
     List<Item> playerInventory = playerInstance.inventory;
@@ -83,9 +66,31 @@ public class Character extends GameObject {
         break;
       }
 
+      Boolean winCondition = currentNode.getWin();
+      // This node terminates the game, one way or another
+      if (winCondition != null) {
+        if (winCondition) {
+          // Game win
+          System.out.println("You've cleared your name and found the real panther vandal. Congratulations!");
+          // Game literally just quits
+          System.exit(0);
+        }
+        else {
+          // Game loss
+          System.out.println("You have failed to clear your name as the panther vandal and now lead a life of shame. Better luck next time.");
+          // TODO: Find way to start the game again
+          System.exit(0); // just quitting for now.
+        }
+      }
+
       int optionIterator = 1;
       for (SimpleEntry<String, DialogNode> kv : currentNode.getChoices()) {
-        System.out.printf("(%d). %s%n", optionIterator, kv.getKey());
+        if (!kv.getValue().getRequired().isEmpty()) {
+          System.out.printf("(%d). %s%n", optionIterator, kv.getKey());
+        }
+        else {
+          System.out.printf("%s [Missing items]%n", kv.getKey());
+        }
 
         optionIterator += 1;
       }
