@@ -47,6 +47,7 @@ public class Adventure {
 
               // add into inventory
               player.addToInventory(possibleItem);
+              // TODO: remove object from world
             }
 
             Character possiblCharacter = player.getCurrentLocation().containCharacter(examineName);
