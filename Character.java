@@ -1,4 +1,6 @@
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 public class Character extends GameObject {
 
@@ -51,7 +53,7 @@ public class Character extends GameObject {
      */
 
     boolean conversationEnded = false;
-    DialogNode currentNode = this.script;
+    AbstractMap.SimpleEntry<String, DialogNode> currentNode = this.script;
     List<Item> playerInventory = playerInstance.inventory;
 
     // TODO: This while loop is faulty, find a different condition
