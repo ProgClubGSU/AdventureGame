@@ -13,7 +13,7 @@ public class DialogNode {
 
   public DialogNode (String blurb) {
     this.blurb = blurb;
-    this.choices = new ArrayList<>();
+    this.choices = null;
     this.wins = null;
     this.reward = null;
     this.required = null;
@@ -21,7 +21,7 @@ public class DialogNode {
 
   public DialogNode (String blurb, Boolean wins) {
     this.blurb = blurb;
-    this.choices = new ArrayList<>();
+    this.choices = null;
     this.wins = wins;
     this.reward = null;
     this.required = null;
@@ -29,7 +29,7 @@ public class DialogNode {
 
   public DialogNode (String blurb, Item reward) {
     this.blurb = blurb;
-    this.choices = new ArrayList<>();
+    this.choices = null;
     this.wins = null;
     this.reward = reward;
     this.required = null;
@@ -37,7 +37,7 @@ public class DialogNode {
 
   public DialogNode (String blurb, List<Item> required) {
     this.blurb = blurb;
-    this.choices = new ArrayList<>();
+    this.choices = null;
     this.wins = null;
     this.reward = null;
     this.required = required;
@@ -53,7 +53,7 @@ public class DialogNode {
 
   public DialogNode(String blurb, List<Item> required, Item reward) {
     this.blurb = blurb;
-    this.choices = new ArrayList<>();
+    this.choices = null;
     this.wins = null;
     this.reward = reward;
     this.required = required;
