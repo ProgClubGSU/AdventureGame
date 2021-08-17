@@ -48,14 +48,15 @@ public class Adventure {
 
 				      // add into inventory
 				      player.addToInventory(possibleItem);
-				      // TODO: remove object from world
+				      
+				      player.getCurrentLocation().removeItem(possibleItem);
 			      }
-			      Character possiblCharacter = player.getCurrentLocation().containCharacter(examineName);
-			      if (possiblCharacter != null) {
-				      System.out.println(possiblCharacter.getDescription());
+			      Character possibleCharacter = player.getCurrentLocation().containCharacter(examineName);
+			      if (possibleCharacter != null) {
+				      System.out.println(possibleCharacter.getDescription());
 
 				      // Start interaction
-				      possiblCharacter.interact(player);
+				      possibleCharacter.interact(player);
 			      }
 		      }
 		      case "go" -> {

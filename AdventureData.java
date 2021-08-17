@@ -2,9 +2,6 @@ import java.util.*;
 import java.util.AbstractMap.SimpleEntry;
 
 public class AdventureData {
-
-  private static Boolean introCompleted = false;
-
   public static Character interactIntroSteve (String playerName) {
 
     Character player = new Character(playerName);
