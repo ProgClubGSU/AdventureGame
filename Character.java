@@ -5,7 +5,7 @@ import java.util.List;
 public class Character extends GameObject {
 
   private Location location;
-  private List<Item> inventory;
+  private final List<Item> inventory;
   private DialogNode script;
 
   public Character (String name) {
@@ -30,28 +30,19 @@ public class Character extends GameObject {
     this.script = script;
   }
 
-  // TODO: interact method for NPCs
   public Boolean interact (Character playerInstance) {
     Scanner interactionScanner = new Scanner(System.in);
 
     DialogNode currentNode = this.script;
-    DialogNode previousNode = null;
     List<Item> playerInventory = playerInstance.inventory;
 
-
-    // conversation state flags
-    boolean noChoices = false;
-    boolean missingItems = false;
-    boolean userQuit = false;
-
-    // TODO: This while loop is faulty, find a different condition
+    // TODO: This loop just doesn't look right, check through the logic thoroughly
     do {
       List<Item> requirements = currentNode.getRequired();
 
       if (requirements != null && !playerInventory.containsAll(requirements)) {
         // the user doesn't have enough to progress the dialogue
         System.out.println("I have nothing to say to you right now.");
-        missingItems = true;
         break;
       }
 
@@ -87,7 +78,6 @@ public class Character extends GameObject {
 
       if (currentNode.getChoices() == null) {
         System.out.println("I have to go now.");
-        noChoices = true;
         break;
       }
 
@@ -114,20 +104,13 @@ public class Character extends GameObject {
         String input = interactionScanner.nextLine().trim().toLowerCase();
         if (input.equals("q")) {
           System.out.println("Okay, bye");
-          userQuit = true;
           break;
         }
         else {
           optionChosen = Integer.parseInt(input);
         }
       }
-      if (noChoices) {
-        currentNode = previousNode;
-      }
-      else {
-        previousNode = currentNode;
-        currentNode = currentNode.getChoices().get(optionChosen - 1).getValue();  // This should work
-      }
+      currentNode = currentNode.getChoices().get(optionChosen - 1).getValue();  // This should work
     } while (true);
 
     return true;
