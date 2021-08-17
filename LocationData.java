@@ -35,4 +35,52 @@ public class LocationData {
 	public static Location hallway = new Location("Admissions Office Hallway",
 			"There appears to be a small lounge area with an appropriately small fridge. " +
 					"There is also a wall safe containing the CCTV servers");
+
+	public static boolean loadLocationData() {
+		office.addPerson(CharacterData.steveSminkle);
+
+		insideLangdale.addPerson(CharacterData.xavier);
+
+		cookieStall.addPerson(CharacterData.glenda);
+
+		downStairs.addPerson(CharacterData.janitor);
+
+		hallway.addPerson(CharacterData.vault);
+
+		// student center
+		studentCenter.addNeighbor("further west", admissionsOffice);
+
+		studentCenter.addNeighbor("west", cookieStall);
+		cookieStall.addNeighbor("back", studentCenter);
+
+		studentCenter.addNeighbor("inside", cafeteria);
+		cafeteria.addNeighbor("outside", studentCenter);
+
+		studentCenter.addNeighbor("south", pantherStatue);
+		pantherStatue.addNeighbor("back", studentCenter);
+
+		// langdale hall
+		langdaleHall.addNeighbor("further east", admissionsOffice);
+
+		langdaleHall.addNeighbor("inside", insideLangdale);
+		insideLangdale.addNeighbor("outside", langdaleHall);
+
+		insideLangdale.addNeighbor("right", vendingMachine);
+		vendingMachine.addNeighbor("back", langdaleHall);
+
+		insideLangdale.addNeighbor("downstairs", downStairs);
+		downStairs.addNeighbor("upstairs", insideLangdale);
+
+		// admissions office
+		admissionsOffice.addNeighbor("further east", studentCenter);
+		admissionsOffice.addNeighbor("further west", langdaleHall);
+
+		admissionsOffice.addNeighbor("inside", office);
+		office.addNeighbor("outside", admissionsOffice);
+
+		office.addNeighbor("left", hallway);
+		hallway.addNeighbor("right", office);
+
+		return true;
+	}
 }

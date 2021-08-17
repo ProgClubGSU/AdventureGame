@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class ItemData {
 	//Objects
 	// General - These can drop randomly from vending machines
@@ -24,4 +26,15 @@ public class ItemData {
 	public static Item cookies = new Item("Cookies",
 			"Delicious cookies from the cookie stall near the panther statue");
 
+	public static boolean loadItemData() {
+		// Item wiring
+		CharacterData.xavier.addToInventory(recountedTestimony);
+
+		CharacterData.janitor.addToInventory(keys);
+
+		CharacterData.glenda.addToInventory(List.of(redMarker, receiptOfTotalSale, cookies));
+
+		CharacterData.vault.addToInventory(securityTape);
+		return true;
+	}
 }
