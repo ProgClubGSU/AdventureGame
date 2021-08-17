@@ -66,8 +66,8 @@ public class AdventureData {
   }
 
   public static boolean loadGameDataAndMC (Character player) {
-    boolean success = CharacterData.loadCharacterData();
-    success &= LocationData.loadLocationData();
+    boolean success = LocationData.loadLocationData();
+    success &= CharacterData.loadCharacterData();
     success &= ItemData.loadItemData();
 
     // Set player location
