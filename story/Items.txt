@@ -1,0 +1,109 @@
+!! Template for adding a new item: !! 
+------
+
+Name: [What is this item called?]
+Description: [What text will describe this item to the player?]
+Received from which NPC: [Who did we get this from?]
+Received from which location: [Where we we get this?]
+Obtained by: [How did wwe get this?]
+Usable at: 
+    - [Where can we use this? Can be multiple]
+
+------
+
+Name: 
+Description: 
+Received from which NPC:
+Received from which location:
+Obtained by: 
+Usable at: 
+    - 
+<------------- START HERE -------------->
+
+Name: Recounted Testimony
+Description: You now no longer have Xavier’s word against you. This is his recounted testimony.
+Received from which NPC: Xavier
+Received from which location: Langdale Hall, inside
+Obtained by: Xavier will only give the user the Recounted Testimony if you bring him the Red Marker && the Receipt of Total Sale. (Langdale Hall, inside)
+Usable at: 
+    - User can only reach (GAME WIN ENDING #1) by giving the Security Tape && Recounted Testimony && Red Marker && Receipt of Total Sale to Steve. (Admissions Office, inside)
+
+------
+
+Name: Security Tape
+Description: Shows a vague figure walking towards the student center on the night of the incident. You cannot distinguish the face of the person pictured but they are noticeably shorter than you or Xavier.
+Received from which NPC: 
+Received from which location: Admissions Office, left
+Obtained by: The user can find the Security Tape by examining the safe while having the keys in inventory.
+Usable at: 
+    - User can only reach (GAME WIN ENDING #1) by giving the Security Tape && Recounted Testimony && Red Marker && Receipt of Total Sale to Steve. (Admissions Office, inside)
+
+------
+
+Name: Red Marker
+Description: A bright red marker, just like the one used for the crime.
+Received from which NPC: Glenda
+Received from which location: Student Center, left
+Obtained by: Speaking to Glenda.
+Usable at: 
+    - User can only reach (GAME WIN ENDING #1) by giving the Security Tape && Recounted Testimony && Red Marker && Receipt of Total Sale to Steve. (Admissions Office, inside)
+
+------
+
+Name: Receipt of Total Sale
+Description: Shows proof that Glenda has been doing considerably well since the incident.
+Received from which NPC: Glenda
+Received from which location: Student Center, left
+Obtained by: Speaking to Glenda.
+Usable at: 
+    -  User can only reach (GAME WIN ENDING #1) by giving the Security Tape && Recounted Testimony && Red Marker && Receipt of Total Sale to Steve. (Admissions Office, inside)
+
+------
+
+Name: Cookies
+Description: 
+Received from which NPC: Glenda
+Received from which location: Student Center, left
+Obtained by: Speaking to Glenda
+Usable at: 
+    - The user can get the Keys by giving Cookies from the Cookie Stall at the Student Center to the Janitor. This prompts the text "You’re alright! Take these for your trouble. Who knows, you might need them more than me!’ The Janitor takes the cookies and closes the Janitors closet. You can hear munching from inside. You obtained the Keys. (Langdale Hall, left)
+
+------
+
+Name: Papaya
+Description: 
+Received from which NPC:
+Received from which location: Student Center, inside
+Obtained by: The user can obtain the Papaya from the Cafeteria by trying to "examine breakfast". This prompts the text "This is breakfast? ...Well alright." (Student Center, inside)
+Usable at: 
+    - 
+
+------
+
+Name: Persimmon
+Description: 
+Received from which NPC:
+Received from which location:
+Obtained by: The user can find the Persimmon in the fridge if examined. This prompts the text "Could this be useful? Probably not. [You obtained the persimmon]". (Admissions Office, left)
+Usable at: 
+    - 
+
+------
+
+Name: Keys 
+Description: 
+Received from which NPC: The Janitor
+Received from which location: Langdale Hall
+Obtained by: The user can get the Keys by giving Cookies from the Cookie Stall at the Student Center to the Janitor. (Langdale Hall, left)
+Usable at: 
+    - The user can find the Security Tape by examining the safe while having the keys in inventory. (Admissions Office, left)
+
+------
+
+Name: Lemon
+Description: 
+Received from which NPC:
+Received from which location: Langdale Hall, right
+Obtained by: The user can find the Lemon by examining the Vending Machine. This prompts the text "You attempt to get the chips out but all that came out was this Lemon."
+Usable at: 
+    - 

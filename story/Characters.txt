@@ -1,0 +1,62 @@
+!! Template for adding a new character/NPC (Non-Playable-Character): !! 
+------
+
+Name: [What is this NPC called?]
+Description: [What text will describe this place to the player?]
+Objects: [What objects can be interacted with or retrieved at this NPC?]
+Required Objects: [Are there any objects required for the player to this NPC?]
+Access: 
+    - [How can these this evidence or these object(s) be obtained?]
+
+------
+
+Name: 
+Description: 
+Objects:
+Required Objects:
+Access: 
+    -
+<------------- START HERE -------------->
+
+Name: Xavier
+Description: Student and alleged witness to the crime. Wears an impressively big jacket. Conveniently wearing a nametag.
+Objects: Recounted Testimony
+Required Objects:
+Access: 
+    - Xavier will only give the user the Recounted Testimony if you bring him the Red Marker && the Receipt of Total Sale.
+
+------ 
+
+Name: Steve Sminkle
+Description: Campus Cop and head of the case. Speaks in a nasally tone.
+Objects:
+Required Objects:
+Access:
+    - User can only reach (GAME WIN ENDING #1) by giving the Security Tape && Recounted Testimony && Red Marker && Receipt of Total Sale to Steve.
+
+------ 
+
+Name: Glenda
+Description: Girl Scout with an entrepreneurial spirit. Keeps her cookie stall right by the panther statue. 9-years-old but nearly has all the badges.
+Objects: Red Marker, Receipt of Total Sale
+Required Objects:
+Access:
+    - The Red Marker && the Receipt of Total Sale can only be obtained by speaking to Glenda.
+
+------
+
+Name: The Janitor
+Description: She won’t let you call her anything else. Loves girl scout cookies.
+Objects: Keys
+Required Objects:
+Access: 
+    - The user can get the Keys by giving Cookies from the Cookie Stall at the Student Center to the Janitor. This prompts the text “You’re alright! Take these for your trouble. Who knows, you might need them more than me!’ The Janitor takes the cookies and closes the Janitors closet. You can hear munching from inside. You obtained the Keys.
+
+-------
+
+Name: Disciplinary Board Member
+Description: Bald head, loves panthers, hates vandals, owns 0 red pens. Quick to accuse, slow to forgive. Probably best to avoid this one.
+Objects:
+Required Objects:
+Access: 
+

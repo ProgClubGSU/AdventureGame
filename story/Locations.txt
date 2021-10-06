@@ -1,0 +1,68 @@
+!! Template for adding a new location: !! 
+------
+
+Name: [What is this place called?]
+Description: [What text will describe this place to the player?]
+NPCs: [What characters are accessible through this location?]
+Objects: [What objects can be interacted with or retrieved at this location?]
+Required Objects: [Are there any objects required for the player to access this place?]
+Sublocations: [What other locations can the player go to from here?]
+    - Sublocation-Name (How to get to that sub-location): [What text will describe this sublocation to the player?]
+Access: 
+    - [How can these objects be obtained?]
+
+------
+
+Name: 
+Description: 
+NPCs: 
+Objects:
+Required Objects:
+Sublocations:
+    - 
+Access:
+    -
+<------------- START HERE -------------->
+
+Name: Student Center
+Description: You are at the Student Center. Here is the scene of the crime and Glenda the girl scout's usual cookie stall location.
+NPCs:  Disciplinary Board Member, Glenda
+Objects: Cookies, Red Marker, Receipt of Total Sale, Papaya
+Required Objects: 
+Sublocations: 
+    - Cafeteria (inside): You see a bunch of tables, some places to purchase breakfast, and a set of stairs that go off to where the Disciplinary Board Member is standing angrily.
+    - Cookie Stall (left): You see many boxes of all sorts of baked goods. Glenda sees you looking at her products and she smiles proudly.
+    - The Panther Statue (right): The panther has profanity scrawled all over it in bright red marker.
+Access: 
+    - The Disciplinary Board Member can only be accessed by going inside the Student Center.   
+    - Glenda can only be accessed by the Cookie Stall sublocation. 
+    - The user can obtain the Papaya from the Cafeteria by trying to “examine breakfast”. This prompts the text “This is breakfast? …Well alright.” 
+    - The user can obtain the Cookies from the Cookie Stall by speaking to Glenda.
+
+------
+
+Name: Admissions Office
+Description: You are at the Admissions Office. Steve Sminkle regularly lounges around the Admissions Office seemingly always…looking for something.
+NPCs: Steve Sminkle
+Objects: Persimmon, Security Tape
+Sublocations:
+    - Inside the office (inside): You see where people should be working but strangely there’s no one here… except Steve.
+    - Down the hallway (left): If you look down the hallway, there appears to be a small lounge area with an appropriately small fridge. There’s also a table with a little safe sitting on top.
+Access:
+    - The user can find the Persimmon in the fridge if examined. This prompts the text “Could this be useful? Probably not. [You obtained the persimmon]” 
+    - The user can find the Security Tape by examining the safe while having the keys in inventory.
+
+------
+
+Name: Langdale Hall
+Description: You are at Langdale Hall, also known as the Language Building.
+NPCs: Xavier, The Janitor
+Objects: Keys, Lemon, Recounted Testimony
+Sublocations:
+    - Inside Langdale Hall (inside): When you first walk in and step up the stairs, you enter a small elevator lobby with a couple chairs, a vending machine, and a student fidgeting with the coffee machine.
+    - Down the Stairs (left): You find the Janitor’s closet and conveniently the Janitor. She demands you exclusively call her by that title.
+    - Vending Machine (right): You can see all sorts of yummy treats and even your favorite kind of chips.
+Access:
+    - The user can find the Lemon by examining the Vending Machine. This prompts the text “You attempt to get the chips out but all that came out was this Lemon.” 
+    - The user can only access the Janitor from Down The Stairs. Xavier is accessible from Inside Langdale Hall.
+
