@@ -27,69 +27,61 @@ public class Adventure {
         System.out.println("Please input a command or type 'help' for options.");
       }
       else {
-        switch (command[0].toLowerCase()) {
-          case "quit":
-            endGame = true;
-            break;
-          case "look":
-            System.out.println(player.getCurrentLocation().getDescription());
-            player.getCurrentLocation().printItemsHere();
-            break;
-          case "examine":
-            // Check to see if the thing being examined is a person or a thing
-            // Always print the description
-            // If it's a person, then start the dialog
-            // If it's an item, then put the item into inventory
-            if (command.length != 2) {
-              System.out.println("You must specify an object/person to examine");
-            }
-            String examineName = command[1];
+	      switch (command[0].toLowerCase()) {
+		      case "quit" -> endGame = true;
+		      case "look" -> {
+			      System.out.println(player.getCurrentLocation().getDescription());
+			      player.getCurrentLocation().printItemsHere();
+		      }
+		      case "examine" -> {
+			      // Check to see if the thing being examined is a person or a thing
+			      // Always print the description
+			      // If it's a person, then start the dialog
+			      // If it's an item, then put the item into inventory
+			      if (command.length != 2) {
+				      System.out.println("You must specify an object/person to examine");
+			      }
+			      String examineName = command[1];
+			      Item possibleItem = player.getCurrentLocation().containItem(examineName);
+			      if (possibleItem != null) {
+				      System.out.println(possibleItem.getDescription());
 
-            Item possibleItem = player.getCurrentLocation().containItem(examineName);
-            if (possibleItem != null) {
-              System.out.println(possibleItem.getDescription());
+				      // add into inventory
+				      player.addToInventory(possibleItem);
+				      
+				      player.getCurrentLocation().removeItem(possibleItem);
+			      }
+			      Character possibleCharacter = player.getCurrentLocation().containCharacter(examineName);
+			      if (possibleCharacter != null) {
+				      System.out.println(possibleCharacter.getDescription());
 
-              // add into inventory
-              player.addToInventory(possibleItem);
-              // TODO: remove object from world
-            }
-
-            Character possiblCharacter = player.getCurrentLocation().containCharacter(examineName);
-            if (possiblCharacter != null) {
-              System.out.println(possiblCharacter.getDescription());
-
-              // Start interaction
-              possiblCharacter.interact(player);
-            }
-
-            break;
-          case "go":
-            if (command.length != 2) {
-              System.out.println("You must specify a place to go.");
-            }
-            String name = command[1];
-            Location newLocation = player.getCurrentLocation().getNeighbor(name);
-            if (newLocation != null) {
-              player.setCurrentLocation(newLocation);
-            }
-            else {
-              System.out.println("Unable to go " + name);
-            }
-            break;
-          case "help":
-            printHelpScreen();
-            break;
-          case "stuff":
-            System.out.println("You currently have: ");
-            player.printStuff();
-            break;
-          default:
-            System.out.println("Unknown command. Try again");
-        }
+				      // Start interaction
+				      possibleCharacter.interact(player);
+			      }
+		      }
+		      case "go" -> {
+			      if (command.length != 2) {
+				      System.out.println("You must specify a place to go.");
+			      }
+			      String name = command[1];
+			      Location newLocation = player.getCurrentLocation().getNeighbor(name);
+			      if (newLocation != null) {
+				      player.setCurrentLocation(newLocation);
+			      }
+			      else {
+				      System.out.println("Unable to go " + name);
+			      }
+		      }
+		      case "help" -> printHelpScreen();
+		      case "stuff" -> {
+			      System.out.println("You currently have: ");
+			      player.printStuff();
+		      }
+		      default -> System.out.println("Unknown command. Try again");
+	      }
       }
     }
     input.close();
-
   }
 
   private static Character playIntro (Scanner input) {
