@@ -60,3 +60,12 @@ Objects:
 Required Objects:
 Access: 
 
+------
+
+Name: Owen
+Description: The worst student
+Objects: A pencil, a suspicious piece of paper
+Required Objects: A sharpener
+Access: 
+    - N Deck
+    - Rec Center
