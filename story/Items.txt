@@ -100,7 +100,7 @@ Usable at:
 
 ------
 
-Name: Lime
+Name: Orange
 Description: 
 Received from which NPC:
 Received from which location: Langdale Hall, right
