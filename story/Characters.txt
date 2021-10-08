@@ -60,3 +60,12 @@ Objects:
 Required Objects:
 Access: 
 
+-------
+
+Name: The Phoenix
+Description: A crazy guy on campus who thinks he's actually a phoenix. Loves to make loud bird noises and throw "fireballs" at passerbys
+Objects: Wings, Phoenix headpiece, Paper fireballs
+Required Objects:
+Access: 
+
+-------
