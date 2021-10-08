@@ -60,3 +60,11 @@ Objects:
 Required Objects:
 Access: 
 
+------
+
+Name: Shantanu
+Description: Student at GSU
+Objects: Laptop
+Required Objects:
+Access: 
+    - 
