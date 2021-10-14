@@ -26,6 +26,10 @@ public class ItemData {
 	public static Item cookies = new Item("Cookies",
 			"Delicious cookies from the cookie stall near the panther statue");
 
+	// Cafeteria
+	public static Item poolNoodle = new Item("Pool Noodle",
+			"You're not sure why you have this. There isn't even any water around.");
+
 	public static boolean loadItemData() {
 		// Item wiring
 		CharacterData.xavier.addToInventory(recountedTestimony);
@@ -35,6 +39,8 @@ public class ItemData {
 		CharacterData.glenda.addToInventory(List.of(redMarker, receiptOfTotalSale, cookies));
 
 		CharacterData.vault.addToInventory(securityTape);
+
+		CharacterData.disciplinaryBoardMember.addToInventory(poolNoodle);
 		return true;
 	}
 }

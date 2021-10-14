@@ -16,6 +16,9 @@ public class CharacterData {
 	public static Character vault = new Character("The Wall Safe",
 			"This contains all of the security tapes generated from the various CCTV cameras", LocationData.hallway);
 
+	public static Character disciplinaryBoardMember = new Character("Disciplinary Board Member",
+			"Bald head. Loves panthers. Hates vandals. Owns zero red pens. Quick to accuse, slow to forgive.", LocationData.cafeteria);
+
 	public static boolean loadCharacterData () {
 		// Scripts wiring
 
@@ -241,6 +244,13 @@ public class CharacterData {
 								)
 						)
 				)
+		);
+
+		disciplinaryBoardMember.setScript(
+			new DialogNode(
+				"Hey you! Can't you see I'm busy??? Here, entertain youself with this.",
+				ItemData.poolNoodle
+			)
 		);
 		return true;
 	}
