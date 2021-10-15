@@ -25,7 +25,7 @@ public class LocationData {
 	// Langdale Hall
 	public static Location insideLangdale = new Location("Inside Langdale Hall",
 			"When you first walk in and step up the stairs, you enter a small elevator lobby with a couple " +
-					"of chairs, a vending machine and a student fidgeting with a coffee machine");
+					"of chairs, a vending machine and a student fidgeting with a coffee machine. His nametag states \"Xavier\"");
 	public static Location downStairs = new Location("Downstairs in Langdale",
 			"You find the Janitor's closet and conveniently the Janitor. She demands you exclusively call her by the title");
 
