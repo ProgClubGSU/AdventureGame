@@ -60,3 +60,11 @@ Objects:
 Required Objects:
 Access: 
 
+------
+
+Name: Owen
+Description: The worst student ever
+Objects: broken pencil, and a piece of paper folded in half
+Required Objects:
+Access: 
+    - 
