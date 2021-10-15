@@ -15,6 +15,7 @@ public class CharacterData {
 			"She won't let you call her anything else. Loves girl scout cookies.", LocationData.downStairs);
 	public static Character vault = new Character("The Wall Safe",
 			"This contains all of the security tapes generated from the various CCTV cameras", LocationData.hallway);
+	public static Character DBM = new Character("Disciplinary Board Member","A very angry looking man. Quick to accuse, slow to forgive.",LocationData.cafeteria);
 
 	public static boolean loadCharacterData () {
 		// Scripts wiring
@@ -263,6 +264,9 @@ public class CharacterData {
 					)
 				)
 			)
+		);
+		DBM.setScript(
+			new DialogNode("Hey! Can't you see I'm busy? Here, entertain yourself with this.",ItemData.poolNoodle)
 		);
 		return true;
 	}
