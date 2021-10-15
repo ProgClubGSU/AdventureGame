@@ -25,6 +25,8 @@ public class ItemData {
 			"Shows proof that Glenda has been doing considerably well since the incident.");
 	public static Item cookies = new Item("Cookies",
 			"Delicious cookies from the cookie stall near the panther statue");
+	public static Item redHandedNote = new Item("A Note of the Red Handed Student",
+			"A note you made of a student \"reading\" their textbook.");
 
 	public static boolean loadItemData() {
 		// Item wiring
@@ -35,6 +37,8 @@ public class ItemData {
 		CharacterData.glenda.addToInventory(List.of(redMarker, receiptOfTotalSale, cookies));
 
 		CharacterData.vault.addToInventory(securityTape);
+
+		CharacterData.seatedStudent.addToInventory(redHandedNote);
 		return true;
 	}
 }

@@ -6,7 +6,9 @@ public class LocationData {
 			"You are at Langdale Hall, also known as the Language Building.");
 	public static Location admissionsOffice = new Location("Admissions Office",
 			"You are at the Admissions Office. Steve Sminkle regularly lounges around the Admissions Office seemingly always... looking for something");
-
+	public static Location greenway = new Location("Greenway",
+			"This pretty park is much better than the old building that used to be here." +
+			" You notice a Seated Student near a tree, studying.");
 	// sublocations
 	// General Sublocation - these can exist in any location
 	public static Location vendingMachine = new Location("Vending Machine",
@@ -36,6 +38,10 @@ public class LocationData {
 			"There appears to be a small lounge area with an appropriately small fridge. " +
 					"There is also a wall safe containing the CCTV servers");
 
+	// Greenway
+	public static Location bench = new Location("Bench",
+			"You could take a quick rest. The mystery doesn't seem like it's going anywhere.");
+
 	public static boolean loadLocationData() {
 		office.addPerson(CharacterData.steveSminkle);
 
@@ -47,8 +53,12 @@ public class LocationData {
 
 		hallway.addPerson(CharacterData.vault);
 
+		greenway.addPerson(CharacterData.seatedStudent);
+
 		// student center
 		studentCenter.addNeighbor("further west", admissionsOffice);
+
+		studentCenter.addNeighbor("northwest", greenway);
 
 		studentCenter.addNeighbor("west", cookieStall);
 		cookieStall.addNeighbor("back", studentCenter);
@@ -61,9 +71,12 @@ public class LocationData {
 
 		// langdale hall
 		langdaleHall.addNeighbor("further east", admissionsOffice);
+		
+		langdaleHall.addNeighbor("northeast", greenway);
 
 		langdaleHall.addNeighbor("inside", insideLangdale);
 		insideLangdale.addNeighbor("outside", langdaleHall);
+		insideLangdale.addNeighbor("backdoor", greenway);
 
 		insideLangdale.addNeighbor("right", vendingMachine);
 		vendingMachine.addNeighbor("back", langdaleHall);
@@ -74,12 +87,23 @@ public class LocationData {
 		// admissions office
 		admissionsOffice.addNeighbor("further east", studentCenter);
 		admissionsOffice.addNeighbor("further west", langdaleHall);
+		admissionsOffice.addNeighbor("south", greenway);
 
 		admissionsOffice.addNeighbor("inside", office);
 		office.addNeighbor("outside", admissionsOffice);
 
 		office.addNeighbor("left", hallway);
 		hallway.addNeighbor("right", office);
+
+		// greenway
+		greenway.addNeighbor("southwest", langdaleHall);
+		greenway.addNeighbor("southeast", studentCenter);
+		greenway.addNeighbor("north", admissionsOffice);
+		greenway.addNeighbor("upstairs", insideLangdale);
+
+		greenway.addNeighbor("sit down", bench);
+		bench.addNeighbor("get up", greenway);
+		bench.addNeighbor("wait", bench);
 
 		return true;
 	}

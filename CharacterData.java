@@ -15,6 +15,8 @@ public class CharacterData {
 			"She won't let you call her anything else. Loves girl scout cookies.", LocationData.downStairs);
 	public static Character vault = new Character("The Wall Safe",
 			"This contains all of the security tapes generated from the various CCTV cameras", LocationData.hallway);
+	public static Character seatedStudent = new Character("Seated Student",
+			"The student is looking rather intently at their textbook. I think it's best to leave them be.", LocationData.greenway);
 
 	public static boolean loadCharacterData () {
 		// Scripts wiring
@@ -191,6 +193,14 @@ public class CharacterData {
 																				)
 																		),
 																		new AbstractMap.SimpleEntry<>(
+																				"There's a student with red on their hands at the Greenway!",
+																				new DialogNode(
+																						"Jill? Studying for her interview? She tried to help me clean the panther statue earlier."
+																						+ " And unsuccessfully I might add.",
+																						List.of(ItemData.redHandedNote)
+																				)
+																		),
+																		new AbstractMap.SimpleEntry<>(
 																				"Based on the evidence I've gathered, I believe Glenda is the true culprit",
 																				new DialogNode(
 																						"Steve can hardly believe his eyes but he also cannot refute" +
@@ -260,6 +270,49 @@ public class CharacterData {
 							List.of(ItemData.keys),
 							ItemData.securityTape
 						)
+					)
+				)
+			)
+		);
+
+		seatedStudent.setScript(
+			new DialogNode(
+				"I really think we should leave them alone. It's rude to interrupt someone's studies!",
+				null,
+				List.of(
+					new AbstractMap.SimpleEntry<>(
+						"Take a step closer",
+						new DialogNode(
+							"You hesitantly take a step closer...",
+							null,
+							List.of(
+								new AbstractMap.SimpleEntry<>(
+									"Examine the textbook.",
+									new DialogNode(
+										"You look at their textbook. It's Cracking the Coding Interview! A classic." +
+										" However you notice the student's hands look to have a bit of red on them!" +
+										" You quickly make note of the student...",
+										ItemData.redHandedNote
+									)
+								),
+								new AbstractMap.SimpleEntry<>(
+									"Call out to them.",
+									new DialogNode(
+										"Huh? Buzz off I'm studying, don't you know it's rude to interrupt someone's studies?"
+									)
+								),
+								new AbstractMap.SimpleEntry<>(
+									"Chicken out.",
+									new DialogNode(
+										"You turn to leave."
+									)
+								)
+							)
+						)
+					),
+					new AbstractMap.SimpleEntry<>(
+						"Leave",
+						new DialogNode("You leave the student alone, on with the mystery!")
 					)
 				)
 			)
