@@ -66,3 +66,14 @@ Access:
     - The user can find the Lemon by examining the Vending Machine. This prompts the text “You attempt to get the chips out but all that came out was this Lemon.” 
     - The user can only access the Janitor from Down The Stairs. Xavier is accessible from Inside Langdale Hall.
 
+------
+
+Name: Greenway
+Description: This pretty park is much better than the old building that used to be here.
+NPCs: Seated Student
+Objects: 
+Required Objects:
+Sublocations:
+    - Bench: You could take a quick rest. The mystery doesn't seem like it's going anywhere.
+Access:
+    - 
