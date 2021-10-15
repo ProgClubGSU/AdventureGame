@@ -3,7 +3,7 @@ import java.util.List;
 public class ItemData {
 	//Objects
 	// General - These can drop randomly from vending machines
-	public static Item lemon;
+	public static Item lemon = new Item("Lemon","It's just a lemon");
 	public static Item persimmon;
 	public static Item papaya;
 
@@ -38,6 +38,8 @@ public class ItemData {
 		CharacterData.vault.addToInventory(securityTape);
 
 		CharacterData.DBM.addToInventory(poolNoodle);
+
+		CharacterData.vendingMachine.addToInventory(lemon);
 		return true;
 	}
 }

@@ -40,6 +40,7 @@ public class LocationData {
 		office.addPerson(CharacterData.steveSminkle);
 
 		insideLangdale.addPerson(CharacterData.xavier);
+		insideLangdale.addPerson(CharacterData.vendingMachine);
 
 		cookieStall.addPerson(CharacterData.glenda);
 
