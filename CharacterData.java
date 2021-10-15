@@ -242,6 +242,28 @@ public class CharacterData {
 						)
 				)
 		);
+		vault.setScript(
+			new DialogNode(
+				"The wall safe is locked. Drat.",
+				null,
+				List.of(
+					new AbstractMap.SimpleEntry<>(
+						"Try to pick the lock",
+						new DialogNode(
+							"You don't know how to pick locks. What were you expecting?"
+						)
+					),
+					new AbstractMap.SimpleEntry<>(
+						"Use keys",
+						new DialogNode(
+							"The key turns and the safe door swings open.",
+							List.of(ItemData.keys),
+							ItemData.securityTape
+						)
+					)
+				)
+			)
+		);
 		return true;
 	}
 }
