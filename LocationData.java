@@ -47,8 +47,6 @@ public class LocationData {
 
 		hallway.addPerson(CharacterData.vault);
 
-		cafeteria.addPerson(CharacterData.DBM);
-
 		// student center
 		studentCenter.addNeighbor("further west", admissionsOffice);
 
