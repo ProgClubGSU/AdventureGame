@@ -40,12 +40,15 @@ public class LocationData {
 		office.addPerson(CharacterData.steveSminkle);
 
 		insideLangdale.addPerson(CharacterData.xavier);
+		insideLangdale.addPerson(CharacterData.vendingMachine);
 
 		cookieStall.addPerson(CharacterData.glenda);
 
 		downStairs.addPerson(CharacterData.janitor);
 
 		hallway.addPerson(CharacterData.vault);
+
+		cafeteria.addPerson(CharacterData.DBM);
 
 		// student center
 		studentCenter.addNeighbor("further west", admissionsOffice);

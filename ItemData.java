@@ -3,7 +3,7 @@ import java.util.List;
 public class ItemData {
 	//Objects
 	// General - These can drop randomly from vending machines
-	public static Item lemon;
+	public static Item lemon = new Item("Lemon","It's just a lemon");
 	public static Item persimmon;
 	public static Item papaya;
 
@@ -25,6 +25,7 @@ public class ItemData {
 			"Shows proof that Glenda has been doing considerably well since the incident.");
 	public static Item cookies = new Item("Cookies",
 			"Delicious cookies from the cookie stall near the panther statue");
+	public static Item poolNoodle = new Item("Pool Noodle","There isn't even any water around, you don't know why you have this.");
 
 	public static boolean loadItemData() {
 		// Item wiring
@@ -35,6 +36,10 @@ public class ItemData {
 		CharacterData.glenda.addToInventory(List.of(redMarker, receiptOfTotalSale, cookies));
 
 		CharacterData.vault.addToInventory(securityTape);
+
+		CharacterData.DBM.addToInventory(poolNoodle);
+
+		CharacterData.vendingMachine.addToInventory(lemon);
 		return true;
 	}
 }
