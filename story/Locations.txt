@@ -26,7 +26,7 @@ Access:
 
 Name: Student Center
 Description: You are at the Student Center. Here is the scene of the crime and Glenda the girl scout's usual cookie stall location.
-NPCs:  Disciplinary Board Member, Glenda
+NPCs:  Disciplinary Board Member, Glenda, The Phoenix
 Objects: Cookies, Red Marker, Receipt of Total Sale, Papaya
 Required Objects: 
 Sublocations: 

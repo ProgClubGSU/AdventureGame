@@ -67,5 +67,5 @@ Description: A crazy guy on campus who thinks he's actually a phoenix. Loves to 
 Objects:
 Required Objects:
 Access: 
-
+	- The player will receive crazy quotes when approaching this character. "Burn it all down so it can rise from the ashes!" "KAkAAAKAKAAA" "Don't get too close; you might get caught in my flames!" "I am the Phoenix, soaring through the skies, and soon I will be reborn into the ultimate lifeform!"
 -------
